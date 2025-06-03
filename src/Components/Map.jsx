@@ -13,8 +13,8 @@ L.Icon.Default.mergeOptions({
 });
 
 const center = {
-  lat: 21.4394636,
-  lng: 92.0077316,
+  lat: 21.425594,
+  lng: 91.976995,
 };
 
 function DraggableMarker() {

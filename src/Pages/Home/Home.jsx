@@ -13,7 +13,7 @@ const Home = () => {
         <Banner/>
       </header>
       <main>
-        <section className="w-3/4 mx-auto">
+        <section className="w-7/12 mx-auto">
           <h1 className="text-7xl font-playfair my-10 font-bold text-center">Our Hotel Location</h1>
           <Map/>
         </section>
