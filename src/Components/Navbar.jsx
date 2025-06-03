@@ -24,7 +24,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 w-11/12 my-3 mx-auto shadow-sm">
+    <div className="navbar backdrop-blur-sm bg-white/10 w-11/12 mb-2 mx-auto shadow-sm">
       <div className="navbar-start gap-3">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="cursor-pointer lg:hidden">
@@ -43,7 +43,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="flex gap-6 text-xl font-semibold">{links}</ul>
+        <ul className="flex gap-6 text-lg font-semibold">{links}</ul>
       </div>
       <div className="navbar-end gap-2 lg:gap-4 items-center">
         <Theme />

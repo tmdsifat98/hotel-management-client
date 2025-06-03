@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar';
 
 const AuthLayout = () => {
     return (
-        <div>
+        <div className="dark:bg-gray-900 dark:text-white">
             <nav>
                 <Navbar/>
             </nav>

@@ -7,14 +7,14 @@ const Home = () => {
   return (
     <div>
       <header>
-        <nav>
+        <nav className="sticky pt-2 top-0 z-50 w-full">
           <Navbar />
         </nav>
         <Banner/>
       </header>
       <main>
-        <section className="w-7/12 mx-auto">
-          <h1 className="text-7xl font-playfair my-10 font-bold text-center">Our Hotel Location</h1>
+        <section className="lg:w-7/12 w-11/12 mx-auto">
+          <h1 className="md:text-5xl text-3xl lg:text-7xl font-playfair mt-8 mb-4 font-bold text-center">Our Hotel Location</h1>
           <Map/>
         </section>
       </main>

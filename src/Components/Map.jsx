@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// Fix default marker icon issue in React
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png",
@@ -58,7 +57,7 @@ function DraggableMarker() {
 
 const Map = () => {
   return (
-    <div style={{ height: "600px", width: "100%" }}>
+    <div className="h-[250px] md:h-[300px] lg:h-[600px] w-full">
       <MapContainer
         center={center}
         zoom={13}

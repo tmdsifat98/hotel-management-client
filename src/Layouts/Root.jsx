@@ -4,7 +4,7 @@ import AuthContext from "../Providers/AuthContext";
 
 const Root = () => {
   return (
-    <div>
+    <div className="dark:bg-gray-900 dark:text-white">
       <Outlet />
     </div>
   );
