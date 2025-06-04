@@ -76,7 +76,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
         </h2>
         <button
           onClick={() => setShowModal(false)}
-          className="absolute top-2 cursor-pointer right-2"
+          className="absolute text-black top-2 cursor-pointer right-2"
           type="button"
         >
           <MdCancel size={28} />{" "}

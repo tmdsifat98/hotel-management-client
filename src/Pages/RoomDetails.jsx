@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import BookNowModal from "../Components/BookNowModal";
+import useAuth from "../hooks/useAuth";
 
 const RoomDetails = () => {
+  const { user } = useAuth();
   const room = useLoaderData();
   const [roomData, setRoomData] = useState(room);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
+  const navigateToLogin = () => {
+    navigate("/auth/login");
+  };
   const handleBookingSuccess = () => {
     setRoomData((prev) => ({ ...prev, available: false }));
     setShowModal(false);
@@ -96,7 +102,7 @@ const RoomDetails = () => {
                 <h4 className="mb-1">
                   <strong>Amenities:</strong>
                 </h4>
-                <ul className=" flex gap-2 text-sm text-gray-600 dark:text-gray-300">
+                <ul className=" flex gap-2 flex-wrap text-sm text-gray-600 dark:text-gray-300">
                   {roomData.amenities.map((a, i) => (
                     <li
                       className="bg-[#ff3b58] text-white px-3 w-fit py-1 rounded text-xs font-medium"
@@ -108,11 +114,11 @@ const RoomDetails = () => {
                 </ul>
               </div>
               <div>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-5 gap-2">
                   <h4>
                     <strong>Speciality:</strong>{" "}
                   </h4>
-                  <ul className="flex gap-1">
+                  <ul className="flex flex-wrap gap-1 mt-3">
                     {room?.tags?.map((tag, index) => (
                       <li
                         key={index}
@@ -127,14 +133,24 @@ const RoomDetails = () => {
             </div>
           </div>
           <div className="mt-6">
-            <button
-              onClick={() => setShowModal(true)}
-              className="w-full button-common py-3 rounded-lg cursor-pointer font-bold text-black
+            {user ? (
+              <button
+                onClick={() => setShowModal(true)}
+                className="w-full button-common py-3 rounded-lg cursor-pointer font-bold text-black
             "
-              disabled={!roomData.available}
-            >
-              {roomData.available ? "Book Now" : "Not Available"}
-            </button>
+                disabled={!roomData.available}
+              >
+                {roomData.available && user ? "Book Now" : "Not Available"}
+              </button>
+            ) : (
+              <button
+                onClick={navigateToLogin}
+                className="w-full button-common py-3 rounded-lg cursor-pointer font-bold text-black
+            "
+              >
+                Book Now
+              </button>
+            )}
           </div>
         </div>
       </div>

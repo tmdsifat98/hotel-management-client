@@ -8,6 +8,8 @@ import Login from "../Pages/Authentication/Login";
 import RoomList from "../Pages/RoomList";
 import RoomDetails from "../Pages/RoomDetails";
 import Loader from "../Components/Loader";
+import PrivateRoute from "./PrivateRoute";
+import MyBookings from "../Pages/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +24,17 @@ const router = createBrowserRouter([
       {
         path: "/room/:id",
         Component: RoomDetails,
-        loader: ({params}) => fetch(`http://localhost:3000/room/${params.id}`),
-        hydrateFallbackElement:<Loader/>
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/room/${params.id}`),
+        hydrateFallbackElement: <Loader />,
+      },
+      {
+        path: "/myBookings",
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
     ],
   },
