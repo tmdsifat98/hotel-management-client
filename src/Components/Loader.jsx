@@ -4,7 +4,7 @@ import { HashLoader } from "react-spinners";
 const Loader = () => {
   return (
     <div>
-      <HashLoader />
+      <HashLoader color="#02ebc4" />
     </div>
   );
 };

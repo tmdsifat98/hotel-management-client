@@ -5,7 +5,7 @@ import "../App.css";
 
 const RoomCard = ({ room }) => {
   return (
-    <Link to={room.available && `/room/${room.id}`} className="relative group">
+    <Link to={`/room/${room._id}`} className="relative group">
       <div
         className={`relative bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl ${
           !room.available && "pointer-events-none"
@@ -68,9 +68,9 @@ const RoomCard = ({ room }) => {
 
           {/* Amenities */}
           <div className="flex flex-wrap gap-2 mt-2">
-            {room.amenities.map((item, idx) => (
+            {room.amenities.map((item, index) => (
               <span
-                key={idx}
+                key={index}
                 className="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded-md text-gray-700 dark:text-gray-200"
               >
                 {item}
@@ -78,11 +78,6 @@ const RoomCard = ({ room }) => {
             ))}
           </div>
         </div>
-        {!room.available && (
-          <div className="banner-bg-card absolute z-50 top-0 h-full w-full flex items-center justify-center">
-            <p className="text-white font-bold text-xl">Not Available!</p>
-          </div>
-        )}
       </div>
     </Link>
   );

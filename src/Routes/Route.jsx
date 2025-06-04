@@ -6,6 +6,8 @@ import AuthLayout from "../Layouts/AuthLayout";
 import SignUp from "../Pages/Authentication/SignUp";
 import Login from "../Pages/Authentication/Login";
 import RoomList from "../Pages/RoomList";
+import RoomDetails from "../Pages/RoomDetails";
+import Loader from "../Components/Loader";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,12 @@ const router = createBrowserRouter([
       {
         path: "/all-rooms",
         Component: RoomList,
+      },
+      {
+        path: "/room/:id",
+        Component: RoomDetails,
+        loader: ({params}) => fetch(`http://localhost:3000/room/${params.id}`),
+        hydrateFallbackElement:<Loader/>
       },
     ],
   },
