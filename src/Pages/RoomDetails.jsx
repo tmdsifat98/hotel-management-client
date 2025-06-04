@@ -4,16 +4,29 @@ import BookNowModal from "../Components/BookNowModal";
 
 const RoomDetails = () => {
   const room = useLoaderData();
+  const [roomData, setRoomData] = useState(room);
   const [showModal, setShowModal] = useState(false);
+
+  const handleBookingSuccess = () => {
+    setRoomData((prev) => ({ ...prev, available: false }));
+    setShowModal(false);
+  };
+
   return (
     <div className="relative">
-      {showModal && <BookNowModal room={room} setShowModal={setShowModal} />}
+      {showModal && (
+        <BookNowModal
+          roomData={roomData}
+          setShowModal={setShowModal}
+          handleBookingSuccess={handleBookingSuccess}
+        />
+      )}
       {/* Image */}
       <div className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="rounded-2xl overflow-hidden shadow-lg">
           <img
-            src={room.image}
-            alt={room.title}
+            src={roomData.image}
+            alt={roomData.title}
             className="w-full h-full object-cover"
           />
         </div>
@@ -22,69 +35,69 @@ const RoomDetails = () => {
         <div className="flex flex-col justify-between">
           <div>
             <h2 className="text-4xl font-bold font-playfair  text-gray-800 dark:text-white mb-2">
-              {room.title}
+              {roomData.title}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              {room.description}
+              {roomData.description}
             </p>
 
             <div className="grid grid-cols-2 gap-4 text-sm text-gray-700 dark:text-gray-200">
               <div>
-                <strong>Price:</strong> ${room.pricePerNight} / night
+                <strong>Price:</strong> ${roomData.pricePerNight} / night
               </div>
               <div>
-                <strong>Rating:</strong> {room.rating} ★
+                <strong>Rating:</strong> {roomData.rating} ★
               </div>
               <div>
-                <strong>Room Number:</strong> #{room.roomNumber}
+                <strong>Room Number:</strong> #{roomData.roomNumber}
               </div>
               <div>
-                <strong>Room Size:</strong> {room.roomSize}
+                <strong>Room Size:</strong> {roomData.roomSize}
               </div>
               <div>
-                <strong>Bed Type:</strong> {room.bedType}
+                <strong>Bed Type:</strong> {roomData.bedType}
               </div>
               <div>
-                <strong>Max Guests:</strong> {room.maxGuests}
+                <strong>Max Guests:</strong> {roomData.maxGuests}
               </div>
               <div>
-                <strong>View:</strong> {room.view}
+                <strong>View:</strong> {roomData.view}
               </div>
               <div>
-                <strong>Floor:</strong> {room.floor}
+                <strong>Floor:</strong> {roomData.floor}
               </div>
               <div>
-                <strong>Wi-Fi Speed:</strong> {room.wifiSpeed}
+                <strong>Wi-Fi Speed:</strong> {roomData.wifiSpeed}
               </div>
               <div>
                 <strong>Smoking Allowed:</strong>{" "}
-                {room.smokingAllowed ? "Yes" : "No"}
+                {roomData.smokingAllowed ? "Yes" : "No"}
               </div>
               <div>
                 <strong>Pets:</strong>{" "}
-                {room.petsAllowed ? "Allowed" : "Not allowed"}
+                {roomData.petsAllowed ? "Allowed" : "Not allowed"}
               </div>
               <div>
-                <strong>Check-In:</strong> {room.checkInTime}
+                <strong>Check-In:</strong> {roomData.checkInTime}
               </div>
               <div>
-                <strong>Check-Out:</strong> {room.checkOutTime}
+                <strong>Check-Out:</strong> {roomData.checkOutTime}
               </div>
               <div>
-                <strong>Cancellation:</strong> {room.cancellationPolicy}
+                <strong>Cancellation:</strong> {roomData.cancellationPolicy}
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="mt-1">
                 <div className="mt-1">
                   <strong>Refundable:</strong>{" "}
-                  {room.isRefundable ? "Yes" : "No"}
+                  {roomData.isRefundable ? "Yes" : "No"}
                 </div>
                 <h4 className="mb-1">
                   <strong>Amenities:</strong>
                 </h4>
                 <ul className=" flex gap-2 text-sm text-gray-600 dark:text-gray-300">
-                  {room.amenities.map((a, i) => (
+                  {roomData.amenities.map((a, i) => (
                     <li
                       className="bg-[#ff3b58] text-white px-3 w-fit py-1 rounded text-xs font-medium"
                       key={i}
@@ -118,9 +131,9 @@ const RoomDetails = () => {
               onClick={() => setShowModal(true)}
               className="w-full button-common py-3 rounded-lg cursor-pointer font-bold text-black
             "
-              disabled={!room.available}
+              disabled={!roomData.available}
             >
-              {room.available ? "Book Now" : "Not Available"}
+              {roomData.available ? "Book Now" : "Not Available"}
             </button>
           </div>
         </div>

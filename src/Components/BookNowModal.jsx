@@ -8,7 +8,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { MdCancel } from "react-icons/md";
 
-const BookNowModal = ({ room, setShowModal }) => {
+const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
+  const room = roomData;
   const { user } = useAuth();
   if (!room) return null;
   const [range, setRange] = useState([
@@ -34,6 +35,17 @@ const BookNowModal = ({ room, setShowModal }) => {
       })
       .then((res) => {
         if (res.data.insertedId) {
+          axios
+            .patch(`http://localhost:3000/room/${room._id}`, {
+              available: false,
+            })
+            .then((res) => {
+              console.log("Updated successfully:", res.data);
+              handleBookingSuccess();
+            })
+            .catch((err) => {
+              console.error("Update failed:", err.message);
+            });
           setShowModal(false);
           Swal.fire({
             position: "center",
@@ -54,12 +66,12 @@ const BookNowModal = ({ room, setShowModal }) => {
   };
 
   return (
-    <div className="fixed top-20 inset-0 bg-black/50 flex justify-center items-center">
+    <div className="fixed top-20 inset-0 dark:bg-black/80 bg-black/50 flex justify-center items-center">
       <form
         onSubmit={handleBooking}
-        className="bg-white dark:bg-gray-900 rounded-xl p-6 w-full max-w-lg shadow-xl relative animate-fadeIn"
+        className="bg-white rounded-xl p-6 w-full max-w-lg shadow-xl relative animate-fadeIn"
       >
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">
           Booking Summary
         </h2>
         <button
@@ -70,7 +82,7 @@ const BookNowModal = ({ room, setShowModal }) => {
           <MdCancel size={28} />{" "}
         </button>
 
-        <div className="space-y-2 text-gray-700 dark:text-gray-200">
+        <div className="space-y-2 text-gray-700 ">
           <p>
             <span className="font-medium">Room:</span> {room.title}
           </p>

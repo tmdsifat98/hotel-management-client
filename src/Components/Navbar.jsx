@@ -45,7 +45,6 @@ const Navbar = () => {
       )}
     </>
   );
-  console.log(user);
   return (
     <div className="navbar backdrop-blur-sm bg-white/10 md:w-11/12 mb-2 mx-auto shadow-sm">
       <div className="navbar-start gap-3">
