@@ -17,9 +17,7 @@ const RoomList = () => {
   return (
     <div>
       {loading ? (
-        <div className="flex min-h-[calc(100vh-74px)] justify-center items-center">
-          <Loader />
-        </div>
+        <Loader />
       ) : (
         <div className="grid grid-cols-1 lg:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
           {roomData.map((room) => (

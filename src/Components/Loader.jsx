@@ -3,7 +3,7 @@ import { HashLoader } from "react-spinners";
 
 const Loader = () => {
   return (
-    <div>
+    <div className="flex min-h-[calc(100vh-74px)] justify-center items-center">
       <HashLoader color="#02ebc4" />
     </div>
   );

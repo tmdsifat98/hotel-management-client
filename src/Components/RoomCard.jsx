@@ -7,7 +7,7 @@ const RoomCard = ({ room }) => {
   return (
     <Link to={`/room/${room._id}`} className="relative group">
       <div
-        className="relative h-[524px] bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl"
+        className="relative md:h-[520px] lg:h-[514px] bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl"
         
       >
         <img
@@ -18,7 +18,7 @@ const RoomCard = ({ room }) => {
 
         <div className="p-5 space-y-3">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+            <h2 className="text-2xl font-bold font-playfair text-gray-800 dark:text-white">
               {room.title}
             </h2>
             <span className="text-sm text-gray-500 dark:text-gray-300">
@@ -27,7 +27,7 @@ const RoomCard = ({ room }) => {
           </div>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3">
-            {room.description.slice(0, 80)}...
+            {room.description.slice(0, 40)}...
           </p>
 
           <div className="grid grid-cols-2 gap-2 text-xs text-gray-700 dark:text-gray-300">
