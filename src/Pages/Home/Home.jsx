@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Navbar from "../../Components/Navbar";
 import Banner from "../../Components/Banner";
 import Map from "../../Components/Map";
 
@@ -10,9 +9,6 @@ const Home = () => {
   return (
     <div>
       <header>
-        <nav className="sticky pt-2 top-0 z-50 w-full">
-          <Navbar />
-        </nav>
         <Banner/>
       </header>
       <main>
