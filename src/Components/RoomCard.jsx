@@ -7,14 +7,13 @@ const RoomCard = ({ room }) => {
   return (
     <Link to={`/room/${room._id}`} className="relative group">
       <div
-        className={`relative bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl ${
-          !room.available && "pointer-events-none"
-        }`}
+        className="relative h-[524px] bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl"
+        
       >
         <img
           src={room.image}
           alt={room.title}
-          className="w-full h-52 object-cover"
+          className="w-full h-62 object-cover"
         />
 
         <div className="p-5 space-y-3">
@@ -62,7 +61,7 @@ const RoomCard = ({ room }) => {
             </p>
 
             <div className="flex items-center gap-1 text-yellow-500 font-semibold">
-              <StarRating value={room.rating} />
+              <span className="text-black dark:text-white">{room.rating}</span> <StarRating value={room.rating} />
             </div>
           </div>
 

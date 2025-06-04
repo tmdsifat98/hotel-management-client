@@ -21,7 +21,7 @@ const RoomList = () => {
           <Loader />
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
+        <div className="grid grid-cols-1 lg:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
           {roomData.map((room) => (
             <RoomCard key={room._id} room={room} />
           ))}

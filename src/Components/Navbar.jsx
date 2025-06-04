@@ -9,7 +9,7 @@ import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth()
+  const { user, logOut } = useAuth();
 
   const handleLogOut = () => {
     logOut()
@@ -38,11 +38,14 @@ const Navbar = () => {
       <li>
         <NavLink to="/all-rooms">Rooms</NavLink>
       </li>
-      <li>
-        <NavLink to="/myBookings">My Bookings</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/myBookings">My Bookings</NavLink>
+        </li>
+      )}
     </>
   );
+  console.log(user);
   return (
     <div className="navbar backdrop-blur-sm bg-white/10 md:w-11/12 mb-2 mx-auto shadow-sm">
       <div className="navbar-start gap-3">
@@ -74,7 +77,7 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full z-50">
+              <div className="w-10 h-10 rounded-full z-50">
                 <img id="user-photo" alt={user?.name} src={user?.photoURL} />
               </div>
             </div>
