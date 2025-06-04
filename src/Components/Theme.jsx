@@ -1,22 +1,20 @@
 import React from "react";
-import { IoIosMoon, IoIosSunny } from "react-icons/io";
 import { useDarkMode } from "../Providers/ThemeProvider";
+import { IoMoon, IoSunny } from "react-icons/io5";
 
 const Theme = () => {
   const { darkMode, setDarkMode } = useDarkMode();
 
   return (
-    // <button onClick={()=>setDarkMode(!darkMode)}>
-    //   {darkMode ? <IoIosMoon /> : <IoIosSunny />}
-    // </button>
     <label className="toggle text-base-content">
       <input
         type="checkbox"
-        checked={darkMode}
         onChange={() => setDarkMode(!darkMode)}
-        className="theme-controller"
+        checked={darkMode && "checked"}
+        className="theme-controler rounded-full p-1 bg-orange-500 checked:bg-indigo-400 checked:text-indigo-800"
       />
-      {darkMode ? <IoIosMoon /> : <IoIosSunny />}
+      <IoSunny />
+      <IoMoon />
     </label>
   );
 };

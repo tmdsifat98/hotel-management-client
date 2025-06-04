@@ -69,7 +69,7 @@ const SignUp = () => {
       <div className="absolute top-[-100px] left-[-200px] w-[800px] h-[800px] bg-[#02ebc4] opacity-30 dark:bg-gray-700 rounded-full rotate-[25deg]"></div>
       <div className="absolute bottom-[-150px] right-[-250px] w-[900px] h-[900px] bg-[#ff3b58] opacity-30 dark:bg-gray-600 rounded-full rotate-[-20deg]"></div>
 
-      <div className="z-10 w-11/12 bg-white dark:bg-gray-900 p-8 rounded shadow-2xl md:max-w-md transition-colors duration-500">
+      <div className="z-10 w-11/12 backdrop-blur-sm bg-white/10 p-8 rounded shadow-2xl md:max-w-md transition-colors duration-500">
         <h2 className="text-3xl font-bold font-playfair text-center text-gray-800 dark:text-white mb-6">
           Please Sign Up!
         </h2>

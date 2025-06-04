@@ -4,12 +4,32 @@ import Logo from "../assets/Logo-app.webp";
 import LogoMb from "../assets/Logo-S.webp";
 import { Link, NavLink } from "react-router";
 import Theme from "./Theme";
-import { useContext } from "react";
-import AuthContext from "../Providers/AuthContext";
 import Button from "./Button";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useAuth()
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Log out successfull!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: true,
+        });
+      });
+  };
   const links = (
     <>
       <li>
@@ -55,20 +75,14 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full z-50">
-                <img
-                  id="user-photo"
-                  data-tooltip-content={user?.displayName}
-                  alt={user?.name}
-                  src={user?.photoURL}
-                />
-                <Tooltip anchorSelect="#user-photo" place="bottom" />
+                <img id="user-photo" alt={user?.name} src={user?.photoURL} />
               </div>
             </div>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-gray-500 w-44 mt-2 p-2 shadow"
             >
-              <Button label="Log Out"></Button>
+              <Button onclick={handleLogOut} label="Log Out"></Button>
             </ul>
           </div>
         ) : (

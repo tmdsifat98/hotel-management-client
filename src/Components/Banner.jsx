@@ -27,7 +27,7 @@ const Banner = () => {
         <SwiperSlide>
           <div className="w-full banner-bg-1 h-72 flex justify-center items-center lg:h-[calc(100vh-110px)]">
             <div className="text-white font-bold text-center lg:space-y-6 ">
-              <h2 className="text-3xl lg:text-7xl font-playfair mb-7 lg:mb-5 text-center">
+              <h2 className="text-3xl lg:w-3/4 mx-auto lg:text-7xl font-playfair mb-7 lg:mb-5 text-center">
                 Find Your Perfect Stay — Anytime, Anywhere.
               </h2>
               <Button label='Connect with us'/>
@@ -37,7 +37,7 @@ const Banner = () => {
         <SwiperSlide>
           <div className="w-full banner-bg-2 h-72 flex justify-center items-center lg:h-[calc(100vh-110px)]">
             <div className="text-white font-bold text-center lg:space-y-6 ">
-              <h2 className="text-3xl lg:text-7xl font-playfair mb-7 lg:mb-5 text-center">
+              <h2 className="text-3xl lg:w-3/4 mx-auto lg:text-7xl font-playfair mb-7 lg:mb-5 text-center">
                 Book in Minutes. Relax for Days.
               </h2>
               <Button label='Connect with us'/>
@@ -47,7 +47,7 @@ const Banner = () => {
         <SwiperSlide>
           <div className="w-full banner-bg-3 h-72 flex justify-center items-center lg:h-[calc(100vh-110px)]">
             <div className="text-white font-bold text-center lg:space-y-6 ">
-              <h2 className="text-3xl lg:text-7xl mb-7 font-playfair lg:mb-5 text-center">
+              <h2 className="text-3xl lg:w-3/4 mx-auto lg:text-7xl mb-7 font-playfair lg:mb-5 text-center">
                 Luxury, Comfort, and Convenience — All in One Place.
               </h2>
               <Button label='Connect with us'/>

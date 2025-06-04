@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../Components/Navbar";
 import Banner from "../../Components/Banner";
 import Map from "../../Components/Map";
 
 const Home = () => {
+  useEffect(()=>{
+    document.title="Lodgify | Home"
+  },[])
   return (
     <div>
       <header>
