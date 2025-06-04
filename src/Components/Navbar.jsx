@@ -24,7 +24,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar backdrop-blur-sm bg-white/10 w-11/12 mb-2 mx-auto shadow-sm">
+    <div className="navbar backdrop-blur-sm bg-white/10 md:w-11/12 mb-2 mx-auto shadow-sm">
       <div className="navbar-start gap-3">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="cursor-pointer lg:hidden">
@@ -32,7 +32,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content dark:bg-gray-700 bg-base-100 rounded-box z-1 mt-3 w-44 p-2 shadow"
           >
             {links}
           </ul>

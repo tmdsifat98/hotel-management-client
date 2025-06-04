@@ -23,8 +23,8 @@
 .banner-bg-3 {
   background: linear-gradient(
       0deg,
-      rgb(15, 15, 15, 0.7),
-      rgb(15, 15, 15, 0.99)
+      rgb(15, 15, 15, 0.5),
+      rgb(15, 15, 15, 0.88)
     ),
     url("./assets/banenrBg3.webp");
   background-position: start;

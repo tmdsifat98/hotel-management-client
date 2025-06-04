@@ -20,7 +20,7 @@ const Banner = () => {
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 2000 }}
+        autoplay={{ delay: 3000 }}
         loop={true}
         className="overflow-hidden shadow-lg"
       >
