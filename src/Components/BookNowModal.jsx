@@ -29,6 +29,9 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
     axios
       .post("http://localhost:3000/myBookings", {
         roomId: room._id,
+        roomImage:room.image,
+        roomName:room.title,
+        roomPrice:room.pricePerNight,
         userEmail: user.email,
         guest,
         dateRange,

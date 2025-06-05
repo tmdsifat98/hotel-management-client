@@ -1,7 +1,7 @@
 import React from "react";
-import StarRating from "./StarRating";
 import { Link } from "react-router";
 import "../App.css";
+import Rating from "./Rating";
 
 const RoomCard = ({ room }) => {
   return (
@@ -61,7 +61,7 @@ const RoomCard = ({ room }) => {
             </p>
 
             <div className="flex items-center gap-1 text-yellow-500 font-semibold">
-              <span className="text-black dark:text-white">{room.rating}</span> <StarRating value={room.rating} />
+              <span className="text-black dark:text-white">{room.rating}</span> <Rating value={room.rating} />
             </div>
           </div>
 

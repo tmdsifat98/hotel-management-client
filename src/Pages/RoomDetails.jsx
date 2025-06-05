@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import BookNowModal from "../Components/BookNowModal";
 import useAuth from "../hooks/useAuth";
+import Rating from "../Components/Rating";
 
 const RoomDetails = () => {
   const { user } = useAuth();
@@ -10,9 +11,6 @@ const RoomDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  const navigateToLogin = () => {
-    navigate("/auth/login");
-  };
   const handleBookingSuccess = () => {
     setRoomData((prev) => ({ ...prev, available: false }));
     setShowModal(false);
@@ -52,7 +50,7 @@ const RoomDetails = () => {
                 <strong>Price:</strong> ${roomData.pricePerNight} / night
               </div>
               <div>
-                <strong>Rating:</strong> {roomData.rating} ★
+                <strong>Rating:</strong> {roomData.rating} <Rating value={roomData.rating}/>
               </div>
               <div>
                 <strong>Room Number:</strong> #{roomData.roomNumber}
@@ -133,24 +131,21 @@ const RoomDetails = () => {
             </div>
           </div>
           <div className="mt-6">
-            {user ? (
-              <button
-                onClick={() => setShowModal(true)}
-                className="w-full button-common py-3 rounded-lg cursor-pointer font-bold text-black
-            "
-                disabled={!roomData.available}
-              >
-                {roomData.available && user ? "Book Now" : "Not Available"}
-              </button>
-            ) : (
-              <button
-                onClick={navigateToLogin}
-                className="w-full button-common py-3 rounded-lg cursor-pointer font-bold text-black
-            "
-              >
-                Book Now
-              </button>
-            )}
+            <button
+              onClick={() => {
+                if (user) {
+                  setShowModal(true);
+                } else {
+                  navigate("/auth/login");
+                }
+              }}
+              className={`${
+                roomData.available ? " button-common cursor-pointer" : "bg-gray-500 cursor-not-allowed"
+              } w-full py-3 rounded-lg font-bold text-black`}
+              disabled={!roomData.available}
+            >
+              {roomData.available ? "Book Now" : "Not Available!"}
+            </button>
           </div>
         </div>
       </div>
