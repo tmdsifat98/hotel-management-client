@@ -4,13 +4,14 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdCall, MdEmail } from "react-icons/md";
 import { FaHouse } from "react-icons/fa6";
 import { Link } from "react-router";
+import { GrSend } from "react-icons/gr";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-300 py-8 mt-12">
       <div className="w-11/12 mx-auto grid grid-cols-2 gap-6 items-start">
-        <div className="flex flex-col lg:flex-row justify-around items-start gap-3 ">
-          <div className="flex flex-col justify-start items-start gap-2">
+        <div className="flex flex-col lg:flex-row justify-around items-start gap-4 lg:gap-0 ">
+          <div className="flex flex-col justify-start items-start gap-3">
             <Link to="/" className="flex items-center justify-center gap-2">
               <img className="h-8 md:h-11" src={logo} />
             </Link>
@@ -82,6 +83,10 @@ const Footer = () => {
                   className="text-red-600 hover:text-red-500 transition"
                 />
               </a>
+            </div>
+            <div className="border w-44 border-gray-400 mt-2 rounded pl-2 flex items-center">
+              <input placeholder="Write message" className="bg-transparent text-sm w-11/12 border-none outline-0" type="text" name="" id="" />
+              <button className="button-common py-2 px-4 cursor-pointer"><GrSend/></button>
             </div>
           </div>
         </div>

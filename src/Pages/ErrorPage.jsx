@@ -9,8 +9,8 @@ const ErrorPage = () => {
   }, []);
   return (
     <div className="flex flex-col justify-center items-center mt-24">
-      <img
-        src="https://imgs.search.brave.com/2ax9aR8Km1Xwf2yjawmlPgB5VBeDFRTrFHtQHNg9LzI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/OTU0NDAwMi92ZWN0/b3IvNDA0LWVycm9y/LWNvbXB1dGVyLXBy/b2dyYW0tZXJyb3It/d2ViLXBhZ2UtY2Fu/bm90LWJlLW9wZW5l/ZC5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9ajlwM0J6anpY/QXFnaENnbFJaMkpt/UEpWSWgzOWVCeVhR/UjdZNUkzVVdEYz0"
+      <img className="h-96"
+        src="https://img.freepik.com/free-vector/404-error-with-tired-person-concept-illustration_114360-7899.jpg?ga=GA1.1.1403165203.1749024381&semt=ais_items_boosted&w=740"
         alt=""
       />
       <Link to="/">

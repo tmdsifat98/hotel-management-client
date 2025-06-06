@@ -1,12 +1,34 @@
-# React + Vite
+# 🏨 Lodgify - Hotel Room Booking Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Lodgify is a full-featured hotel room booking platform built with React. It allows users to browse available rooms, book their desired stay, post reviews, and manage bookings with real-time updates. Built with a modern tech stack and clean user experience in mind.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## Expanding the ESLint configuration
+🔗 [Visit Live Site](https://assignment-11-1acf0.web.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🎯 Purpose
+
+The goal of this project is to build a user-friendly and responsive hotel room booking system where users can:
+- Explore rooms with filters
+- Book rooms based on availability
+- Post reviews and ratings
+- Cancel or modify bookings
+
+---
+
+## ✨ Key Features
+
+- 🔐 Firebase Authentication (Login/Signup)
+- 📅 Date range selection with day count calculation
+- 🏨 Room details page with booking modal
+- 📦 Bookings management (Cancel / Update Dates / Review)
+- 💬 Tooltip & confirmation modals
+- 🌍 Interactive map integration (Leaflet)
+- 🔄 Responsive design with Tailwind CSS
+- 🔥 Toasts and alerts for feedback
+- 🧠 Smart UI components with conditional rendering
+- 🌙 Dark Mode ready (if applicable)
