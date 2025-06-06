@@ -7,12 +7,14 @@ import BookingRoom from "../Components/BookingRoom";
 import Loader from "../Components/Loader";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import ReviewModal from "../Components/ReviewModal";
 
 const MyBookings = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [bookings, setBookings] = useState([]);
-  console.log(bookings);
+  const [showModal, setShowModal] = useState(false);
+ const [rateBooking, setRateBooking] = useState(null);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -69,7 +71,7 @@ const MyBookings = () => {
   };
 
   return (
-    <div className=" min-h-[calc(100vh-402px)]">
+    <div className=" min-h-[calc(100vh-402px)] relative">
       <h1 className="text-4xl font-bold my-5 text-center font-playfair">
         My Bookings
       </h1>
@@ -117,12 +119,15 @@ const MyBookings = () => {
                   booking={booking}
                   index={index}
                   handleDelete={handleDelete}
+                  setShowModal={setShowModal}
+                  setRateBooking={setRateBooking}
                 />
               ))}
             </tbody>
           </table>
         </div>
       )}
+      {showModal && <ReviewModal setShowModal={setShowModal} rateBooking={rateBooking} />}
     </div>
   );
 };

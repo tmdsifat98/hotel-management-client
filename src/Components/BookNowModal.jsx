@@ -29,9 +29,9 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
     axios
       .post("http://localhost:3000/myBookings", {
         roomId: room._id,
-        roomImage:room.image,
-        roomName:room.title,
-        roomPrice:room.pricePerNight,
+        roomImage: room.image,
+        roomName: room.title,
+        roomPrice: room.pricePerNight,
         userEmail: user.email,
         guest,
         dateRange,
@@ -43,20 +43,21 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
               available: false,
             })
             .then((res) => {
-              console.log("Updated successfully:", res.data);
-              handleBookingSuccess();
+              if (res.data.modifiedCount) {
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Room booked successful",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                setShowModal(false);
+                handleBookingSuccess();
+              }
             })
             .catch((err) => {
               console.error("Update failed:", err.message);
             });
-          setShowModal(false);
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Room booked successful",
-            showConfirmButton: false,
-            timer: 1500,
-          });
         }
       })
       .catch((err) =>
