@@ -1,24 +1,31 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { createPortal } from "react-dom";
 import { MdClose } from "react-icons/md";
 import StarRatings from "react-star-ratings";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const ReviewModal = ({ setShowModal, rateBooking }) => {
+  const { user } = useAuth();
   const [rating, setRating] = useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const text = form.reviewText.value;
+    const review = {
+      roomId: rateBooking,
+      userEmail: user.email,
+      userName: user.displayName,
+      userPhoto: user.photoURL,
+      rating,
+      comment: text,
+      createdAt: new Date().toLocaleString(),
+    };
     axios
-      .patch(`http://localhost:3000/room/${rateBooking}`, {
-        rating: rating,
-      })
+      .post("http://localhost:3000/review", review)
       .then((res) => {
         console.log(res.data);
-        if (res.data.modifiedCount) {
-          setShowModal(false);
+        if (res.data) {
           Swal.fire({
             position: "center",
             icon: "success",
@@ -26,18 +33,17 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
             showConfirmButton: false,
             timer: 1500,
           });
+          setShowModal(false);
         }
       })
-      .catch((err) => {
-        console.error("Update failed:", err.message);
-      });
+      .catch((err) => console.log(err));
   };
-  return createPortal(
-    <div className="fixed top-20 inset-0 dark:bg-black/80 bg-black/50 flex justify-center items-center">
+  return (
+    <div className="fixed top-20 inset-0 dark:bg-black/80 bg-black/50 text-black flex justify-center items-center">
       <div className="bg-white rounded-xl shadow-lg w-[95%] md:w-[450px] p-6 relative animate-fade-in">
         <button
           onClick={() => setShowModal(false)}
-          className="absolute cursor-pointer right-4 top-4 text-gray-500 hover:text-black"
+          className="absolute cursor-pointer right-4 top-4 text-black hover:text-red-500 transition-colors"
         >
           <MdClose size={22} />
         </button>
@@ -48,6 +54,13 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="text-center">
+            <label>User name: </label>
+            <input
+              type="text"
+              value={user.displayName}
+              readOnly
+              className="w-1/2 mb-3 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-gray-100 text-black focus:ring-2 focus:ring-blue-400 outline-none"
+            />
             <StarRatings
               rating={rating}
               starRatedColor="gold"
@@ -75,8 +88,7 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
           </button>
         </form>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 };
 

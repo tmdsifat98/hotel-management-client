@@ -61,7 +61,7 @@ const RoomCard = ({ room }) => {
             </p>
 
             <div className="flex items-center gap-1 text-yellow-500 font-semibold">
-              <span className="text-black dark:text-white">{room.rating}</span> <Rating value={room.rating} />
+              <span className="text-black dark:text-white">{room.rating.toFixed(1)}</span> <Rating value={room.rating} />
             </div>
           </div>
 

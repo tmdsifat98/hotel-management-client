@@ -134,7 +134,7 @@ const SignUp = () => {
               </button>
             </div>
           </div>
-          <p className="text-red-600 text-sm">{error}</p>
+          <p className="text-red-600 dark:text-red-600 font-semibold text-sm mb-3">{error}</p>
           <Button label="Sign Up" width="w-full" />
         </form>
         <p className="mt-4">

@@ -3,6 +3,7 @@ import { Link, useLoaderData, useNavigate } from "react-router";
 import BookNowModal from "../Components/BookNowModal";
 import useAuth from "../hooks/useAuth";
 import Rating from "../Components/Rating";
+import ReviewsOnRoomPage from "../Components/ReviewsOnRoomPage";
 
 const RoomDetails = () => {
   const { user } = useAuth();
@@ -50,7 +51,7 @@ const RoomDetails = () => {
                 <strong>Price:</strong> ${roomData.pricePerNight} / night
               </div>
               <div>
-                <strong>Rating:</strong> {roomData.rating} <Rating value={roomData.rating}/>
+                <strong>Rating:</strong> {roomData.rating.toFixed(1)} <Rating value={roomData.rating}/>
               </div>
               <div>
                 <strong>Room Number:</strong> #{roomData.roomNumber}
@@ -149,6 +150,7 @@ const RoomDetails = () => {
           </div>
         </div>
       </div>
+      <ReviewsOnRoomPage id={roomData._id}/>
     </div>
   );
 };

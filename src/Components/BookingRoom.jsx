@@ -1,11 +1,10 @@
 import React from "react";
 import { getDayCount } from "../utils/dayCount";
 import { MdRateReview } from "react-icons/md";
-import { ImCancelCircle } from "react-icons/im";
+import { TbCancel } from "react-icons/tb";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
-import Swal from "sweetalert2";
 import { Link } from "react-router";
 
 const BookingRoom = ({
@@ -37,7 +36,7 @@ const BookingRoom = ({
       <td>
         <Link to={`/room/${booking.roomId}`}>{booking.roomName}</Link>{" "}
       </td>
-      <td>${booking.roomPrice * days}</td>
+      <td>${booking.roomPrice * (days+1)}</td>
       <td className="hidden md:table-cell">
         <div className="flex items-center justify-center">{booking.guest}</div>
       </td>
@@ -49,7 +48,7 @@ const BookingRoom = ({
       <td>
         <div className="flex items-center gap-2 justify-center">
           <button
-            className="cursor-pointer"
+            className="cursor-pointer hover:text-lime-600"
             data-tooltip-id="update-tooltip"
             data-tooltip-content="Update Booking Date"
           >
@@ -61,7 +60,7 @@ const BookingRoom = ({
               setShowModal(true);
               setRateBooking(booking.roomId);
             }}
-            className="cursor-pointer"
+            className="cursor-pointer hover:text-indigo-600"
             data-tooltip-id="review-tooltip"
             data-tooltip-content="Give a review"
           >
@@ -69,11 +68,11 @@ const BookingRoom = ({
           </button>
           <button
             onClick={() => handleDelete(booking)}
-            className="cursor-pointer"
+            className="cursor-pointer hover:text-red-600"
             data-tooltip-id="cancel-tooltip"
             data-tooltip-content="Cancel Booking"
           >
-            <ImCancelCircle size={22} />
+            <TbCancel size={22} />
           </button>
           <Tooltip id="update-tooltip" place="bottom" />
           <Tooltip id="cancel-tooltip" place="bottom" />
