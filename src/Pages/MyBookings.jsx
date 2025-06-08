@@ -20,7 +20,7 @@ const MyBookings = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3000/myBookings?email=${user.email}`)
+      .get(`https://assignment-11-server-beige-seven.vercel.app/myBookings?email=${user.email}`)
       .then((res) => {
         setBookings(res.data);
         setLoading(false);
@@ -39,14 +39,14 @@ const MyBookings = () => {
       confirmButtonText: "Proceed",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/myBookings/${booking._id}`, {
+        fetch(`https://assignment-11-server-beige-seven.vercel.app/myBookings/${booking._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
               axios
-                .patch(`http://localhost:3000/room/${booking.roomId}`, {
+                .patch(`https://assignment-11-server-beige-seven.vercel.app/room/${booking.roomId}`, {
                   available: true,
                 })
                 .then((res) => res.data)

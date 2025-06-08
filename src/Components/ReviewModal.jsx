@@ -22,7 +22,7 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
       createdAt: new Date().toLocaleString(),
     };
     axios
-      .post("http://localhost:3000/review", review)
+      .post("https://assignment-11-server-beige-seven.vercel.app/review", review)
       .then((res) => {
         console.log(res.data);
         if (res.data) {

@@ -7,7 +7,7 @@ const RoomList = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/rooms")
+    fetch("https://assignment-11-server-beige-seven.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
         setRoomData(data);

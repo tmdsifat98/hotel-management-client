@@ -12,7 +12,7 @@ const ReviewCarousel = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/reviews").then((res) => {
+    axios.get("https://assignment-11-server-beige-seven.vercel.app/reviews").then((res) => {
       const sorted = res.data.sort(
         (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
       );
