@@ -5,7 +5,7 @@ import Rating from "./Rating";
 const ReviewsOnRoomPage = ({ id }) => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    axios(`https://assignment-11-server-beige-seven.vercel.app/room/review/${id}`).then((res) =>
+    axios(`http://localhost:3000/room/review/${id}`).then((res) =>
       setReviews(res.data)
     );
   }, [id]);

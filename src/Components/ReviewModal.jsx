@@ -13,8 +13,9 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
     const form = e.target;
     const text = form.reviewText.value;
     const review = {
-      roomId: rateBooking,
-      userEmail: user.email,
+      roomId: rateBooking._id,
+      roomImage: rateBooking.roomImage,
+      roomTitle: rateBooking.roomName,
       userName: user.displayName,
       userPhoto: user.photoURL,
       rating,
@@ -22,9 +23,8 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
       createdAt: new Date().toLocaleString(),
     };
     axios
-      .post("https://assignment-11-server-beige-seven.vercel.app/review", review)
+      .post("http://localhost:3000/review", review)
       .then((res) => {
-        console.log(res.data);
         if (res.data) {
           Swal.fire({
             position: "center",

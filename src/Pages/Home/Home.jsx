@@ -7,6 +7,8 @@ const Home = () => {
   useEffect(()=>{
     document.title="Lodgify | Home"
   },[])
+
+  
   return (
     <div>
       <header>

@@ -7,7 +7,7 @@ const RoomList = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch("https://assignment-11-server-beige-seven.vercel.app/rooms")
+    fetch("http://localhost:3000/rooms")
       .then((res) => res.json())
       .then((data) => {
         setRoomData(data);
@@ -17,7 +17,7 @@ const RoomList = () => {
   return (
     <div>
       {loading ? (
-        <Loader />
+        <Loader h={true} />
       ) : (
         <div className="grid grid-cols-1 lg:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
           {roomData.map((room) => (

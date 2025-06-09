@@ -58,7 +58,7 @@ const BookingRoom = ({
           <button
             onClick={() => {
               setShowModal(true);
-              setRateBooking(booking.roomId);
+              setRateBooking(booking);
             }}
             className="cursor-pointer hover:text-indigo-600"
             data-tooltip-id="review-tooltip"

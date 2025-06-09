@@ -30,7 +30,7 @@ const Banner = () => {
               <h2 className="text-3xl lg:w-3/4 mx-auto lg:text-7xl font-playfair mb-7 lg:mb-5 text-center">
                 Find Your Perfect Stay — Anytime, Anywhere.
               </h2>
-              <Button label='Connect with us'/>
+              <Link to="/all-rooms"><Button label='Connect with us'/></Link>
             </div>
           </div>
         </SwiperSlide>
@@ -40,7 +40,7 @@ const Banner = () => {
               <h2 className="text-3xl lg:w-3/4 mx-auto lg:text-7xl font-playfair mb-7 lg:mb-5 text-center">
                 Book in Minutes. Relax for Days.
               </h2>
-              <Button label='Connect with us'/>
+              <Link to="/all-rooms"><Button label='Connect with us'/></Link>
             </div>
           </div>
         </SwiperSlide>
@@ -50,7 +50,7 @@ const Banner = () => {
               <h2 className="text-3xl lg:w-3/4 mx-auto lg:text-7xl mb-7 font-playfair lg:mb-5 text-center">
                 Luxury, Comfort, and Convenience — All in One Place.
               </h2>
-              <Button label='Connect with us'/>
+              <Link to="/all-rooms"><Button label='Connect with us'/></Link>
             </div>
           </div>
         </SwiperSlide>
