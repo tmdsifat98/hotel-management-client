@@ -16,7 +16,7 @@ const RoomDetails = () => {
     setRoomData((prev) => ({ ...prev, available: false }));
     setShowModal(false);
   };
-
+  console.log(roomData._id);
   return (
     <div className="relative">
       {showModal && (
@@ -26,7 +26,6 @@ const RoomDetails = () => {
           handleBookingSuccess={handleBookingSuccess}
         />
       )}
-      {/* Image */}
       <div className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="rounded-2xl overflow-hidden shadow-lg">
           <img
@@ -36,7 +35,6 @@ const RoomDetails = () => {
           />
         </div>
 
-        {/* Room Info */}
         <div className="flex flex-col justify-between">
           <div>
             <h2 className="text-4xl font-bold font-playfair  text-gray-800 dark:text-white mb-2">
@@ -51,10 +49,16 @@ const RoomDetails = () => {
                 <strong>Price:</strong> ${roomData.pricePerNight} / night
               </div>
               <div>
-                <strong>Rating:</strong> {roomData.rating.toFixed(1)} <Rating value={roomData.rating}/>
+                <strong>Rating:</strong> {roomData.rating.toFixed(1)}{" "}
+                <Rating value={roomData.rating} />
               </div>
               <div>
                 <strong>Room Number:</strong> #{roomData.roomNumber}
+              </div>
+              <div>
+                <strong>
+                  Total Review: {String(roomData.totalReview).padStart(2, "0")}
+                </strong>
               </div>
               <div>
                 <strong>Room Size:</strong> {roomData.roomSize}
@@ -81,9 +85,6 @@ const RoomDetails = () => {
               <div>
                 <strong>Pets:</strong>{" "}
                 {roomData.petsAllowed ? "Allowed" : "Not allowed"}
-              </div>
-              <div>
-                <strong>Check-In:</strong> {roomData.checkInTime}
               </div>
               <div>
                 <strong>Check-Out:</strong> {roomData.checkOutTime}
@@ -141,7 +142,9 @@ const RoomDetails = () => {
                 }
               }}
               className={`${
-                roomData.available ? " button-common cursor-pointer" : "bg-gray-500 cursor-not-allowed"
+                roomData.available
+                  ? " button-common cursor-pointer"
+                  : "bg-gray-500 cursor-not-allowed"
               } w-full py-3 rounded-lg font-bold text-black`}
               disabled={!roomData.available}
             >
@@ -150,7 +153,7 @@ const RoomDetails = () => {
           </div>
         </div>
       </div>
-      <ReviewsOnRoomPage id={roomData._id}/>
+      <ReviewsOnRoomPage id={roomData._id} />
     </div>
   );
 };

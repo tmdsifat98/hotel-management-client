@@ -13,15 +13,17 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
     const form = e.target;
     const text = form.reviewText.value;
     const review = {
-      roomId: rateBooking._id,
+      roomId: rateBooking.roomId,
       roomImage: rateBooking.roomImage,
       roomTitle: rateBooking.roomName,
       userName: user.displayName,
+      userEmail: user.email,
       userPhoto: user.photoURL,
       rating,
       comment: text,
       createdAt: new Date().toLocaleString(),
     };
+    console.log(rateBooking);
     axios
       .post("http://localhost:3000/review", review)
       .then((res) => {

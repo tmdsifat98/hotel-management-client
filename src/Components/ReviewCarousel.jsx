@@ -48,15 +48,15 @@ const ReviewCarousel = () => {
               >
                 {reviews.map((review) => (
                   <SwiperSlide key={review._id}>
-                    <div className="w-3/4 mx-auto md:w-80 bg-white dark:bg-gray-700 shadow-xl rounded-2xl overflow-hidden transform hover:scale-101transition-transform duration-300">
+                    <div className="w-3/4 mx-auto md:w-96 bg-white dark:bg-gray-700 shadow-xl rounded-2xl overflow-hidden transform hover:scale-101 transition-transform duration-300">
                       <div className="relative">
                         <img
                           className="w-11/12 mx-auto h-44 object-cover opacity-90"
                           src={review.roomImage}
                           alt={review.roomTitle}
                         />
-                        <div className="absolute top-0 left-0 button-common text-white px-7 py-2 rounded-br-lg">
-                          <h4 className="text-lg font-semibold">
+                        <div className="absolute top-0 left-0 button-common text-black px-7 py-2 rounded-br-lg">
+                          <h4 className="text-lg font-bold">
                             {review.roomTitle}
                           </h4>
                         </div>
@@ -64,7 +64,7 @@ const ReviewCarousel = () => {
                       <div className="p-6">
                         <div className="flex items-center mb-4">
                           <img
-                            className="w-14 h-14 rounded-full mr-4 border-2 border-indigo-200 object-cover transform hover:rotate-6 transition-transform duration-300"
+                            className="w-14 h-14 rounded-full mr-4 border-2 border-indigo-200 object-cover"
                             src={review.userPhoto}
                             alt={review.userName}
                           />
@@ -83,8 +83,10 @@ const ReviewCarousel = () => {
                             {review.rating}/5
                           </span>
                         </div>
-                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-indigo-500 dark:border-blue-600 line-clamp-2">
-                          {review.comment}
+                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-indigo-500 dark:border-blue-600 ">
+                          {review.comment.length > 40
+                            ? review.comment.slice(0, 36) + "..."
+                            : review.comment}
                         </div>
                       </div>
                     </div>
