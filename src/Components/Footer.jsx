@@ -33,7 +33,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/returnPolicy" className="hover:underline">
-                  Return Policy
+                  Refund Policy
                 </Link>
               </li>
             </ul>

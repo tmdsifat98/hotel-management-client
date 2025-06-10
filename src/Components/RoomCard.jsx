@@ -6,10 +6,16 @@ import Rating from "./Rating";
 const RoomCard = ({ room }) => {
   return (
     <Link to={`/room/${room._id}`} className="relative group">
-      <div
-        className="relative md:h-[520px] lg:h-[514px] bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl"
-        
-      >
+      <div className="relative md:h-[520px] lg:h-[514px] bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+        {room.available ? (
+          <span className="badge absolute top-0 right-0 badge-xs py-3 px-4 bg-lime-600 border-none text-white">
+            Available
+          </span>
+        ) : (
+          <span className="badge absolute top-0 right-0 badge-xs py-3 px-4 bg-rose-600 border-none text-white">
+            Not available
+          </span>
+        )}
         <img
           src={room.image}
           alt={room.title}
@@ -61,7 +67,10 @@ const RoomCard = ({ room }) => {
             </p>
 
             <div className="flex items-center gap-1 text-yellow-500 font-semibold">
-              <span className="text-black dark:text-white">{room.rating.toFixed(1)}</span> <Rating value={room.rating} />
+              <span className="text-black dark:text-white">
+                {room.rating.toFixed(1)}
+              </span>{" "}
+              <Rating value={room.rating} />
             </div>
           </div>
 

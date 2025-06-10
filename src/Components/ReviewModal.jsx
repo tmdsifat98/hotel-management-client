@@ -21,7 +21,7 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
       userPhoto: user.photoURL,
       rating,
       comment: text,
-      createdAt: new Date().toLocaleString(),
+
     };
     console.log(rateBooking);
     axios

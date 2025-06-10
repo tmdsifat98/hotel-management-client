@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Rating from "./Rating";
 import Loader from "./Loader";
+import NoData from "./NoData";
 
 const ReviewCarousel = () => {
   const [reviews, setReviews] = useState([]);
@@ -18,6 +19,7 @@ const ReviewCarousel = () => {
       setLoading(false);
     });
   }, []);
+  console.log(reviews);
   return (
     <div>
       <h2 className="text-3xl font-bold text-center mt-12 mb-6 font-playfair">
@@ -28,7 +30,7 @@ const ReviewCarousel = () => {
       ) : (
         <div>
           {reviews.length < 1 ? (
-            <p className="text-center text-gray-500">No reviews available.</p>
+            <NoData title="Opps! No Reviews available" />
           ) : (
             <div className="max-w-7xl mx-auto pb-12 my-10 px-4">
               <Swiper
@@ -47,16 +49,16 @@ const ReviewCarousel = () => {
                 }}
               >
                 {reviews.map((review) => (
-                  <SwiperSlide key={review._id}>
-                    <div className="w-3/4 mx-auto md:w-96 bg-white dark:bg-gray-700 shadow-xl rounded-2xl overflow-hidden transform hover:scale-101 transition-transform duration-300">
+                  <SwiperSlide className="pb-8" key={review._id}>
+                    <div className="w-3/4 mx-auto md:w-96 bg-white dark:bg-gray-700 shadow-xl rounded-md overflow-hidden transform hover:scale-101 transition-transform duration-300">
                       <div className="relative">
                         <img
                           className="w-11/12 mx-auto h-44 object-cover opacity-90"
                           src={review.roomImage}
                           alt={review.roomTitle}
                         />
-                        <div className="absolute top-0 left-0 button-common text-black px-7 py-2 rounded-br-lg">
-                          <h4 className="text-lg font-bold">
+                        <div className="absolute top-0 left-0 button-common text-black px-10 py-2 rounded-br-lg">
+                          <h4 className="text-lg font-medium">
                             {review.roomTitle}
                           </h4>
                         </div>
@@ -64,7 +66,7 @@ const ReviewCarousel = () => {
                       <div className="p-6">
                         <div className="flex items-center mb-4">
                           <img
-                            className="w-14 h-14 rounded-full mr-4 border-2 border-indigo-200 object-cover"
+                            className="w-12 h-12 rounded-full mr-4 border-2 border-indigo-200 object-cover"
                             src={review.userPhoto}
                             alt={review.userName}
                           />
@@ -73,7 +75,7 @@ const ReviewCarousel = () => {
                               {review.userName}
                             </h3>
                             <p className="text-sm text-gray-500 dark:text-gray-300">
-                              {review.createdAt}
+                              {new Date(review.createdAt).toLocaleString()}
                             </p>
                           </div>
                         </div>

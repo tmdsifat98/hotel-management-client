@@ -8,13 +8,14 @@ import Loader from "../Components/Loader";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import ReviewModal from "../Components/ReviewModal";
+import NoData from "../Components/NoData";
 
 const MyBookings = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [bookings, setBookings] = useState([]);
   const [showModal, setShowModal] = useState(false);
- const [rateBooking, setRateBooking] = useState(null);
+  const [rateBooking, setRateBooking] = useState(null);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -78,22 +79,14 @@ const MyBookings = () => {
       {loading ? (
         <Loader h={true} />
       ) : bookings.length < 1 ? (
-        <div className="flex flex-col items-center justify-center min-h-[400px] text-center">
-          <img
-            src="https://img.freepik.com/free-vector/hand-drawn-no-data-illustration_23-2150696458.jpg?ga=GA1.1.1403165203.1749024381&semt=ais_items_boosted&w=740"
-            alt="No Bookings"
-            className="w-[360px] h-72 mb-4 object-cover"
+        <div className="flex flex-col items-center justify-center text-center">
+          <NoData
+            title="No Bookings Found"
+            message="You haven't booked any rooms yet. Click the button below to explore available rooms and make a reservation."
           />
-          <h2 className="text-3xl font-semibold text-gray-700 dark:text-gray-200 mb-2">
-            No Bookings Found
-          </h2>
-          <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md">
-            You haven't booked any rooms yet. Click the button below to explore
-            available rooms and make a reservation.
-          </p>
           <button
             onClick={() => navigate("/all-rooms")}
-            className="px-6 py-3 button-common cursor-pointer text-white font-medium rounded"
+            className="px-6 py-3 button-common cursor-pointer text-white font-semibold rounded"
           >
             Browse Rooms
           </button>
@@ -127,7 +120,9 @@ const MyBookings = () => {
           </table>
         </div>
       )}
-      {showModal && <ReviewModal setShowModal={setShowModal} rateBooking={rateBooking} />}
+      {showModal && (
+        <ReviewModal setShowModal={setShowModal} rateBooking={rateBooking} />
+      )}
     </div>
   );
 };
