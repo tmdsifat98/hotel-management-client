@@ -3,13 +3,15 @@ import Banner from "../../Components/Banner";
 import Map from "../../Components/Map";
 import ReviewCarousel from "../../Components/ReviewCarousel";
 import { useState } from "react";
+import PromotionModal from "../../Components/PromotionModal";
+import UpdateDate from "../../Components/UpdateDate";
 
 const Home = () => {
-  const [showPromo, setShowPromo] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setShowPromo(true);
+      setShowModal(true);
     }, 1000);
 
     return () => clearTimeout(timeout);
@@ -20,6 +22,7 @@ const Home = () => {
 
   return (
     <div>
+      <PromotionModal isOpen={showModal} onClose={() => setShowModal(false)} />
       <header>
         <Banner />
       </header>
@@ -34,7 +37,6 @@ const Home = () => {
           <ReviewCarousel />
         </section>
       </main>
-      Home
     </div>
   );
 };

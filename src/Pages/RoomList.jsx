@@ -27,11 +27,10 @@ const RoomList = () => {
         setLoading(false);
       });
   }, [maxPrice, minPrice]);
-  console.log(priceRange);
   return (
     <div>
       <h1 className="text-center text-6xl font-bold font-playfair">
-        All Our Rooms
+        Our Special Rooms
       </h1>
       <div>
         <PriceRange setPriceRange={setPriceRange} />

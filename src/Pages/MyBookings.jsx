@@ -9,6 +9,7 @@ import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import ReviewModal from "../Components/ReviewModal";
 import NoData from "../Components/NoData";
+import UpdateDate from "../Components/UpdateDate";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -16,6 +17,8 @@ const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [rateBooking, setRateBooking] = useState(null);
+  const [updateModal, setUpdateModal] = useState(false);
+  const [updateDateRoom, setUpdateDateRoom] = useState();
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -70,7 +73,6 @@ const MyBookings = () => {
       }
     });
   };
-
   return (
     <div className=" min-h-[calc(100vh-402px)] relative">
       <h1 className="text-4xl font-bold my-5 text-center font-playfair">
@@ -114,6 +116,8 @@ const MyBookings = () => {
                   handleDelete={handleDelete}
                   setShowModal={setShowModal}
                   setRateBooking={setRateBooking}
+                  setUpdateModal={setUpdateModal}
+                  setUpdateDateRoom={setUpdateDateRoom}
                 />
               ))}
             </tbody>
@@ -122,6 +126,12 @@ const MyBookings = () => {
       )}
       {showModal && (
         <ReviewModal setShowModal={setShowModal} rateBooking={rateBooking} />
+      )}
+      {updateModal && (
+        <UpdateDate
+          setUpdateModal={setUpdateModal}
+          updateDateRoom={updateDateRoom}
+        />
       )}
     </div>
   );

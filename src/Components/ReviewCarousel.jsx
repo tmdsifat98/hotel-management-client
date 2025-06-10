@@ -19,7 +19,6 @@ const ReviewCarousel = () => {
       setLoading(false);
     });
   }, []);
-  console.log(reviews);
   return (
     <div>
       <h2 className="text-3xl font-bold text-center mt-12 mb-6 font-playfair">
