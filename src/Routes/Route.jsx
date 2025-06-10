@@ -10,6 +10,7 @@ import RoomDetails from "../Pages/RoomDetails";
 import Loader from "../Components/Loader";
 import PrivateRoute from "./PrivateRoute";
 import MyBookings from "../Pages/MyBookings";
+import RefundPolicy from "../Pages/RefundPolicy";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {path:'/refundPolicy',Component:RefundPolicy}
     ],
   },
   {

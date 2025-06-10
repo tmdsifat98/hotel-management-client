@@ -10,9 +10,11 @@ import Swal from "sweetalert2";
 import ReviewModal from "../Components/ReviewModal";
 import NoData from "../Components/NoData";
 import UpdateDate from "../Components/UpdateDate";
+import { getDayCount } from "../utils/dayCount";
 
 const MyBookings = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
+  // console.log(user.accessToken);
   const [loading, setLoading] = useState(false);
   const [bookings, setBookings] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -23,55 +25,96 @@ const MyBookings = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
-    axios
-      .get(`http://localhost:3000/myBookings?email=${user.email}`)
+    axios(`http://localhost:3000/myBookings?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => {
         setBookings(res.data);
         setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        if (error.response.status === 401) {
+          logOut()
+            .then(() => {
+              Swal.fire({
+                title: "Logged out for unauthorized access",
+                icon: "error",
+                draggable: true,
+              });
+            })
+            .catch((err) => console.log(err));
+        } else if (error.response.status === 403) {
+          logOut()
+            .then(() => {
+              Swal.fire({
+                title: "Logged out for forbidden access",
+                icon: "error",
+                draggable: true,
+              });
+            })
+            .catch((err) => console.log(err));
+        } else {
+          console.log(error.response.status);
+        }
       });
   }, [user.email]);
 
-  const handleDelete = (booking) => {
-    Swal.fire({
-      title: "Cancel this booking?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "blue",
-      cancelButtonColor: "red",
-      cancelButtonText: "No",
-      confirmButtonText: "Proceed",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:3000/myBookings/${booking._id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount) {
-              axios
-                .patch(`http://localhost:3000/room/${booking.roomId}`, {
-                  available: true,
-                })
-                .then((res) => res.data)
-                .catch((err) => {
-                  console.log(err.message);
+  const handleDelete = (booking, checkInDate) => {
+    const today = new Date();
+    const daydiff = getDayCount(today, checkInDate);
+
+    if (daydiff <= 1) {
+      Swal.fire({
+        icon: "error",
+        title: "Sorry Mr/Mrs",
+        text: "Unfortunately, bookings cannot be canceled one day prior to the scheduled date",
+        footer: "<a class='text-blue-600 hover:underline' href='/refundPolicy'>See our refund policies!</a>",
+      });
+    } else {
+      Swal.fire({
+        title: "Cancel this booking?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "blue",
+        cancelButtonColor: "red",
+        cancelButtonText: "No",
+        confirmButtonText: "Proceed",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:3000/myBookings/${booking._id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount) {
+                axios
+                  .patch(`http://localhost:3000/room/${booking.roomId}`, {
+                    available: true,
+                  })
+                  .then((res) => res.data)
+                  .catch((err) => {
+                    console.log(err.message);
+                  });
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Booking cancelled successful",
+                  showConfirmButton: false,
+                  timer: 1500,
                 });
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Booking cancelled successful",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              const remainingRooms = bookings.filter(
-                (t) => t._id !== booking._id
-              );
-              setBookings(remainingRooms);
-            }
-          });
-      }
-    });
+                const remainingRooms = bookings.filter(
+                  (t) => t._id !== booking._id
+                );
+                setBookings(remainingRooms);
+              }
+            });
+        }
+      });
+    }
   };
   return (
     <div className=" min-h-[calc(100vh-402px)] relative">

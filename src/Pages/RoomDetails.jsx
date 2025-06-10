@@ -16,7 +16,6 @@ const RoomDetails = () => {
     setRoomData((prev) => ({ ...prev, available: false }));
     setShowModal(false);
   };
-  console.log(roomData._id);
   return (
     <div className="relative">
       {showModal && (

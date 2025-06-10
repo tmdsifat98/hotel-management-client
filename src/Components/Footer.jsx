@@ -32,7 +32,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/returnPolicy" className="hover:underline">
+                <Link to="/refundPolicy" className="hover:underline">
                   Refund Policy
                 </Link>
               </li>

@@ -14,9 +14,8 @@ const BookingRoom = ({
   setShowModal,
   setRateBooking,
   setUpdateModal,
-  setUpdateDateRoom
+  setUpdateDateRoom,
 }) => {
-
   const days = getDayCount(
     booking.dateRange.checkIn,
     booking.dateRange.checkOut
@@ -39,7 +38,7 @@ const BookingRoom = ({
       <td>
         <Link to={`/room/${booking.roomId}`}>{booking.roomName}</Link>{" "}
       </td>
-      <td>${booking.roomPrice * (days + 1)}</td>
+      <td>${parseFloat(booking.roomPrice) * (days + 1)}</td>
       <td className="hidden md:table-cell">
         <div className="flex items-center justify-center">{booking.guest}</div>
       </td>
@@ -74,7 +73,9 @@ const BookingRoom = ({
             <MdRateReview size={24} />
           </button>
           <button
-            onClick={() => handleDelete(booking)}
+            onClick={() =>
+              handleDelete(booking, booking.dateRange.checkIn.split(",")[0])
+            }
             className="cursor-pointer hover:text-red-600"
             data-tooltip-id="cancel-tooltip"
             data-tooltip-content="Cancel Booking"
