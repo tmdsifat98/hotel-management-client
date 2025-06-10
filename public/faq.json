@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "question": "What are the check-in and check-out times?",
+    "answer": "Check-in: 2 PM | Check-out: 11 AM. Late check-out may incur extra charges."
+  },
+  {
+    "id": 2,
+    "question": "Is free Wi-Fi available?",
+    "answer": "Yes, high-speed Wi-Fi is provided in all rooms and public areas."
+  },
+  {
+    "id": 3,
+    "question": "What is the cancellation policy?",
+    "answer": "Free cancellation 48 hours prior to check-in. Later cancellations charge 1 night’s fee."
+  },
+  {
+    "id": 4,
+    "question": "Do you offer airport shuttle services?",
+    "answer": "Yes, airport transfers can be arranged for an additional fee. Contact reception."
+  },
+  {
+    "id": 5,
+    "question": "Are pets allowed?",
+    "answer": "Only service animals are permitted. Please inform us in advance."
+  },
+  {
+    "id": 6,
+    "question": "Is breakfast included?",
+    "answer": "Complimentary breakfast is served daily from 7 AM to 10 AM."
+  },
+  {
+    "id": 7,
+    "question": "How do I modify my booking?",
+    "answer": "Log in to your account on our website or contact support@yourhotel.com."
+  }
+]

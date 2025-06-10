@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import Rating from "./Rating";
 
 const ReviewsOnRoomPage = ({ id }) => {
-
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/room/review/${id}`)
+      .get(
+        `https://assignment-11-server-beige-seven.vercel.app/room/review/${id}`
+      )
       .then((res) => setReviews(res.data));
   }, [id]);
   return (
@@ -34,7 +35,9 @@ const ReviewsOnRoomPage = ({ id }) => {
                 />
                 <div>
                   <h3 className="font-semibold text-lg">{review.userName}</h3>
-                  <p className="text-sm text-gray-500">{review.createdAt}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">
+                    {new Date(review.createdAt).toLocaleString()}
+                  </p>
                 </div>
               </div>
               <div className="ml-6 mt-3">

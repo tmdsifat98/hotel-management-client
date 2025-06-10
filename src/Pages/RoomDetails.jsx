@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import BookNowModal from "../Components/BookNowModal";
 import useAuth from "../hooks/useAuth";
@@ -16,6 +16,9 @@ const RoomDetails = () => {
     setRoomData((prev) => ({ ...prev, available: false }));
     setShowModal(false);
   };
+    useEffect(()=>{
+      document.title=`${room.title}`
+    },[])
   return (
     <div className="relative">
       {showModal && (

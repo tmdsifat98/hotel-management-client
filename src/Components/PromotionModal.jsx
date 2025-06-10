@@ -6,7 +6,7 @@ const PromotionModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/75 z-[999] flex justify-center px-2 items-center">
+    <div className="fixed inset-0 bg-black/75 z-[1110] flex justify-center px-2 items-center">
       <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-xl relative">
         <button
           onClick={onClose}

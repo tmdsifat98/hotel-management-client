@@ -27,7 +27,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
     const guest = e.target.guestCount.value;
     const dateRange = { checkIn, checkOut };
     axios
-      .post("http://localhost:3000/myBookings", {
+      .post("https://assignment-11-server-beige-seven.vercel.app/myBookings", {
         roomId: room._id,
         roomImage: room.image,
         roomName: room.title,
@@ -39,7 +39,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
       .then((res) => {
         if (res.data.insertedId) {
           axios
-            .patch(`http://localhost:3000/room/${room._id}`, {
+            .patch(`https://assignment-11-server-beige-seven.vercel.app/room/${room._id}`, {
               available: false,
             })
             .then((res) => {

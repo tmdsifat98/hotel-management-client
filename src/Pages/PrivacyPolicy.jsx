@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const PrivacyPolicy = () => {
+      useEffect(()=>{
+        document.title="Privacy Policy"
+      },[])
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-2 md:px-0">
-      <h2 className="button-common text-center md:w-4/5 py-5 text-3xl font-playfair font-semibold mx-auto">
+      <h2 className="button-common text-center md:w-4/5 py-5 text-5xl font-playfair font-semibold mx-auto">
         Privacy Policy
       </h2>
       <div className="md:w-4/5 mx-auto py-3">

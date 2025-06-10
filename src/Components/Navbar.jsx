@@ -7,6 +7,8 @@ import Theme from "./Theme";
 import Button from "./Button";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -72,12 +74,14 @@ const Navbar = () => {
         {user ? (
           <div className="dropdown dropdown-end">
             <div
+              data-tooltip-id="navbar"
+              data-tooltip-content={user?.displayName}
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 h-10 rounded-full z-50">
-                <img id="user-photo" alt={user?.name} src={user?.photoURL} />
+                <img id="user-photo" alt={user?.displayName} src={user?.photoURL} />
               </div>
             </div>
             <ul
@@ -92,6 +96,7 @@ const Navbar = () => {
             <Button label="Login" />
           </Link>
         )}
+         <Tooltip id="navbar" place="bottom" />
       </div>
     </div>
   );

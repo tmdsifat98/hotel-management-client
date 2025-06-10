@@ -4,7 +4,7 @@ import Map from "../../Components/Map";
 import ReviewCarousel from "../../Components/ReviewCarousel";
 import { useState } from "react";
 import PromotionModal from "../../Components/PromotionModal";
-import UpdateDate from "../../Components/UpdateDate";
+import Faq from "../../Components/Faq";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -28,13 +28,16 @@ const Home = () => {
       </header>
       <main>
         <section className="lg:w-7/12 w-11/12 mx-auto">
-          <h1 className="md:text-5xl text-4xl lg:text-7xl font-playfair mt-8 mb-4 font-bold text-center">
+          <h1 className="md:text-5xl text-4xl lg:text-6xl font-playfair mt-10 mb-7 font-bold text-center">
             Our Hotel Location
           </h1>
           <Map />
         </section>
         <section>
           <ReviewCarousel />
+        </section>
+        <section>
+          <Faq/>
         </section>
       </main>
     </div>

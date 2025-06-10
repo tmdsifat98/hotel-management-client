@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const TermsAndCondition = () => {
+      useEffect(()=>{
+        document.title="Terms & Conditions"
+      },[])
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-2 md:px-0">
         <div className="md:w-3/4 mx-auto button-common py-6 text-center">

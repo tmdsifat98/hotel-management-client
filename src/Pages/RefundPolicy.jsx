@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const RefundPolicy = () => {
+      useEffect(()=>{
+        document.title="Refund Policy"
+      },[])
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 button-common rounded py-4 text-center">
-        <h1 className="text-3xl font-bold">Refund Policy</h1>
+        <h1 className="text-5xl font-bold font-playfair">Refund Policy</h1>
       </div>
       <div className="container mx-auto px-4 py-1">
         <div className="bg-white rounded-lg p-8">

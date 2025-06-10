@@ -14,14 +14,14 @@ const ReviewCarousel = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    axios("http://localhost:3000/review").then((res) => {
+    axios("https://assignment-11-server-beige-seven.vercel.app/review").then((res) => {
       setReviews(res.data);
       setLoading(false);
     });
   }, []);
   return (
     <div>
-      <h2 className="text-3xl font-bold text-center mt-12 mb-6 font-playfair">
+      <h2 className="text-5xl md:text-6xl font-semibold text-center mt-12 mb-6 font-playfair">
         Our Guests Review
       </h2>
       {loading ? (
@@ -52,12 +52,12 @@ const ReviewCarousel = () => {
                     <div className="w-3/4 mx-auto md:w-96 bg-white dark:bg-gray-700 shadow-xl rounded-md overflow-hidden transform hover:scale-101 transition-transform duration-300">
                       <div className="relative">
                         <img
-                          className="w-11/12 mx-auto h-44 object-cover opacity-90"
+                          className="w-11/12 mx-auto h-44 object-cover rounded-lg opacity-90"
                           src={review.roomImage}
                           alt={review.roomTitle}
                         />
-                        <div className="absolute top-0 left-0 button-common text-black px-10 py-2 rounded-br-lg">
-                          <h4 className="text-lg font-medium">
+                        <div className="absolute top-0 left-[16px] button-common text-black px-10 py-1 rounded-br-lg rounded-tl-lg">
+                          <h4 className="font-medium">
                             {review.roomTitle}
                           </h4>
                         </div>

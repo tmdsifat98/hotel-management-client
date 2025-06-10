@@ -16,7 +16,7 @@ const RoomList = () => {
   useEffect(() => {
     setLoading(true);
     axios(
-      `http://localhost:3000/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
+      `https://assignment-11-server-beige-seven.vercel.app/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
     )
       .then((res) => {
         setRoomData(res.data);
@@ -27,6 +27,10 @@ const RoomList = () => {
         setLoading(false);
       });
   }, [maxPrice, minPrice]);
+
+    useEffect(()=>{
+      document.title="Our rooms"
+    },[])
   return (
     <div>
       <h1 className="text-center text-6xl font-bold font-playfair">

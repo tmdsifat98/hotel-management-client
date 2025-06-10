@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../Components/Button";
 import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
@@ -70,6 +70,9 @@ const Login = () => {
       });
   }
 
+  useEffect(()=>{
+    document.title="Lodgify | Login"
+  },[])
   return (
     <div className="relative md:w-11/12 mx-auto min-h-[calc(100vh-81px)] flex items-center justify-center bg-gradient-to-br from-[#ff3b58] to-[#02ebc4] dark:from-gray-900 dark:to-gray-700 overflow-hidden transition-colors duration-500">
       <div className="absolute top-[-100px] left-[-200px] w-[800px] h-[800px] bg-[#02ebc4] opacity-30 dark:bg-gray-700 rounded-full rotate-[25deg]"></div>
