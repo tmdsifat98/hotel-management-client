@@ -11,6 +11,8 @@ import Loader from "../Components/Loader";
 import PrivateRoute from "./PrivateRoute";
 import MyBookings from "../Pages/MyBookings";
 import RefundPolicy from "../Pages/RefundPolicy";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import TermsAndCondition from "../Pages/TermsAndCondition";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +39,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {path:'/refundPolicy',Component:RefundPolicy}
+      { path: "/refundPolicy", Component: RefundPolicy },
+      { path: "/privacyPolicy", Component: PrivacyPolicy },
+      { path: "/termsAndCondition", Component: TermsAndCondition },
     ],
   },
   {
