@@ -5,6 +5,7 @@ import ReviewCarousel from "../../Components/ReviewCarousel";
 import { useState } from "react";
 import PromotionModal from "../../Components/PromotionModal";
 import Faq from "../../Components/Faq";
+import Facilities from "../../Components/Facilities";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,6 +39,9 @@ const Home = () => {
         </section>
         <section>
           <Faq/>
+        </section>
+        <section>
+          <Facilities/>
         </section>
       </main>
     </div>
