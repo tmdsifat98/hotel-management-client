@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { MdCancel } from "react-icons/md";
+import { Fade } from "react-awesome-reveal";
 
 const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
   const room = roomData;
@@ -70,7 +71,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
   };
 
   return (
-    <div className="fixed top-20 inset-0 dark:bg-black/80 bg-black/50 flex justify-center items-center">
+    <Fade><div className="fixed top-20 inset-0 dark:bg-black/80 bg-black/50 flex justify-center items-center">
       <form
         onSubmit={handleBooking}
         className="bg-white rounded-xl p-6 w-full max-w-lg shadow-xl relative animate-fadeIn"
@@ -140,7 +141,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
           <Button label="Confirm Booking" />
         </div>
       </form>
-    </div>
+    </div></Fade>
   );
 };
 

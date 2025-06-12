@@ -2,6 +2,7 @@ import React, { useState, useRef, useMemo, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { Zoom } from "react-awesome-reveal";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -57,20 +58,22 @@ function DraggableMarker() {
 
 const Map = () => {
   return (
-    <div className="h-[250px] md:h-[380px] lg:h-[600px] z-10 w-full">
-      <MapContainer
-        center={center}
-        zoom={13}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <DraggableMarker />
-      </MapContainer>
-    </div>
+    <Zoom>
+      <div className="h-[250px] md:h-[380px] lg:h-[600px] z-10 w-full">
+        <MapContainer
+          center={center}
+          zoom={13}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <DraggableMarker />
+        </MapContainer>
+      </div>
+    </Zoom>
   );
 };
 

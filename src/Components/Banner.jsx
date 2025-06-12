@@ -2,6 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "../App.css";
+import { Fade } from "react-awesome-reveal";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,7 +12,8 @@ import Button from "./Button";
 
 const Banner = () => {
   return (
-    <div className="w-11/12 mx-auto">
+   <Fade>
+     <div className="w-11/12 mx-auto">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
@@ -72,6 +74,7 @@ const Banner = () => {
         </SwiperSlide>
       </Swiper>
     </div>
+   </Fade>
   );
 };
 

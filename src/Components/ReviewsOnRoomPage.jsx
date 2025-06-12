@@ -20,15 +20,18 @@ const ReviewsOnRoomPage = ({ id }) => {
   }, [id]);
   return (
     <div className="lg:w-7/12 mx-auto">
-      <h2 className="text-5xl font-playfair mt-7 font-semibold text-center">
+      <h2 className="text-5xl font-playfair my-7 font-semibold text-center">
         User Reviews
       </h2>
       {loading ? (
         <Loader />
       ) : reviews.length === 0 ? (
-        <NoData title="Oppss! No reviews yet for this room" message="Stay with us for more service" />
+        <NoData
+          title="Oppss! No reviews yet for this room"
+          message="Stay with us for more service"
+        />
       ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 px-2 md:gap-6">
           {reviews.map((review) => (
             <div
               key={review._id}
@@ -48,12 +51,10 @@ const ReviewsOnRoomPage = ({ id }) => {
                 </div>
               </div>
               <div className="ml-6 mt-3">
-                <Rating value={review.rating} />
-                <p className="mt-2 text-gray-800 dark:text-gray-200">
-                  {review.comment.length > 110
-                    ? review.comment.slice(0, 110) + "..."
-                    : review.comment}
-                </p>
+                <div className="flex items-center gap-1">
+                  <Rating value={review.rating} /> <p className="mt-1">({review.rating})</p>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mt-2 line-clamp-3">{review.comment}</p>
               </div>
             </div>
           ))}

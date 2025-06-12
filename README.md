@@ -6,13 +6,14 @@ Lodgify is a full-featured hotel room booking platform built with React. It allo
 
 ## 🌐 Live Demo
 
-🔗 [Visit Live Site](https://assignment-11-1acf0.web.app/)
+🔗https://assignment-11-1acf0.web.app
 
 ---
 
 ## 🎯 Purpose
 
 The goal of this project is to build a user-friendly and responsive hotel room booking system where users can:
+
 - Explore rooms with filters
 - Book rooms based on availability
 - Post reviews and ratings
@@ -40,18 +41,17 @@ The goal of this project is to build a user-friendly and responsive hotel room b
 
 ## 📦 NPM Packages Used
 
-## 📦 NPM Packages Used
-
-- **Tailwind CSS** – Utility-first CSS framework for fast and responsive UI design  
-- **DaisyUI** – Tailwind CSS component library for styled UI elements  
-- **Axios** – Promise-based HTTP client for making API requests  
-- **Firebase** – Backend service for authentication, database, and hosting  
-- **React Date Range** – Component for selecting a date range with calendar UI  
-- **React Leaflet** – React components for interactive maps using Leaflet.js  
-- **React Icons** – Popular icon packs as React components  
-- **React Spinners** – A collection of loading spinner components for React  
-- **React Star Ratings** – Component for displaying and submitting star-based ratings  
-- **React Tooltip** – Tooltips for UI elements in React apps  
-- **SweetAlert2** – Beautiful and customizable alert modals  
-- **Swiper** – Modern touch slider/carousel for displaying content like reviews  
-- **Motion** – Animation library for React powered by Framer Motion  
+- **Tailwind CSS** – Utility-first CSS framework for fast and responsive UI design
+- **DaisyUI** – Tailwind CSS component library for styled UI elements
+- **Axios** – Promise-based HTTP client for making API requests
+- **Firebase** – Backend service for authentication, database, and hosting
+- **React Date Range** – Component for selecting a date range with calendar UI
+- **React Leaflet** – React components for interactive maps using Leaflet.js
+- **React Icons** – Popular icon packs as React components
+- **React Spinners** – A collection of loading spinner components for React
+- **React Star Ratings** – Component for displaying and submitting star-based ratings
+- **React Tooltip** – Tooltips for UI elements in React apps
+- **SweetAlert2** – Beautiful and customizable alert modals
+- **Swiper** – Modern touch slider/carousel for displaying content like reviews
+- **Motion** – Animation library for React powered by Framer Motion
+- **React Awesome Reveal** – Animation library based on Framer Motion to reveal elements on scroll with elegant effects

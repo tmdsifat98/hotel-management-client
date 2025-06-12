@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   // constexts
-  const { logInUser,signInGoogle,setUser } = useAuth();
+  const { logInUser, signInGoogle, setUser } = useAuth();
   const [showPass, setShowPass] = useState(false);
 
   const navigate = useNavigate();
@@ -48,8 +48,8 @@ const Login = () => {
   };
 
   // google signIn
-  const handleGoogle=()=>{
-     signInGoogle()
+  const handleGoogle = () => {
+    signInGoogle()
       .then((res) => {
         setUser(res.user);
         navigate(location?.state || "/");
@@ -68,11 +68,11 @@ const Login = () => {
           draggable: true,
         });
       });
-  }
+  };
 
-  useEffect(()=>{
-    document.title="Lodgify | Login"
-  },[])
+  useEffect(() => {
+    document.title = "Lodgify | Login";
+  }, []);
   return (
     <div className="relative md:w-11/12 mx-auto min-h-[calc(100vh-81px)] flex items-center justify-center bg-gradient-to-br from-[#ff3b58] to-[#02ebc4] dark:from-gray-900 dark:to-gray-700 overflow-hidden transition-colors duration-500">
       <div className="absolute top-[-100px] left-[-200px] w-[800px] h-[800px] bg-[#02ebc4] opacity-30 dark:bg-gray-700 rounded-full rotate-[25deg]"></div>

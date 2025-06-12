@@ -4,6 +4,7 @@ import Loader from "../Components/Loader";
 import PriceRange from "../Components/PriceRange";
 import axios from "axios";
 import NoData from "../Components/NoData";
+import { Fade } from "react-awesome-reveal";
 
 const RoomList = () => {
   const [roomData, setRoomData] = useState([]);
@@ -28,9 +29,9 @@ const RoomList = () => {
       });
   }, [maxPrice, minPrice]);
 
-    useEffect(()=>{
-      document.title="All rooms"
-    },[])
+  useEffect(() => {
+    document.title = "All rooms";
+  }, []);
   return (
     <div>
       <h1 className="text-center text-6xl font-bold font-playfair">
@@ -47,11 +48,13 @@ const RoomList = () => {
           message="No rooms available with this price range. Please try adjusting your filters or check back later."
         />
       ) : (
-        <div className="grid grid-cols-1 lg:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
-          {roomData.map((room) => (
-            <RoomCard key={room._id} room={room} />
-          ))}
-        </div>
+        <Fade>
+          <div className="grid grid-cols-1 lg:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
+            {roomData.map((room) => (
+              <RoomCard key={room._id} room={room} />
+            ))}
+          </div>
+        </Fade>
       )}
     </div>
   );

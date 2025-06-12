@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Loader from "./Loader";
+import { Slide } from "react-awesome-reveal";
 
 const Facilities = () => {
   const [facilities, setFacilities] = useState([]);
@@ -40,7 +41,8 @@ const Facilities = () => {
       ) : (
         <div className="grid grid-cols-1 gap-2 lg:gap-8 md:grid-cols-2 px-5 lg:grid-cols-3">
           {facilities.map((facility, index) => (
-            <motion.div
+            <Slide>
+              <motion.div
               key={facility._id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -77,6 +79,7 @@ const Facilities = () => {
                 </motion.div>
               </div>
             </motion.div>
+            </Slide>
           ))}
         </div>
       )}
