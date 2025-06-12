@@ -18,7 +18,7 @@ const RoomDetails = () => {
   };
     useEffect(()=>{
       document.title=`${room.title}`
-    },[])
+    },[room.title])
   return (
     <div className="relative">
       {showModal && (

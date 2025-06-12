@@ -1,25 +1,32 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Rating from "./Rating";
+import NoData from "./NoData";
+import Loader from "./Loader";
 
 const ReviewsOnRoomPage = ({ id }) => {
   const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     axios
       .get(
         `https://assignment-11-server-beige-seven.vercel.app/room/review/${id}`
       )
-      .then((res) => setReviews(res.data));
+      .then((res) => {
+        setReviews(res.data);
+        setLoading(false);
+      });
   }, [id]);
   return (
     <div className="lg:w-7/12 mx-auto">
-      <h2 className="text-5xl font-playfair mt-7 font-semibold mb-4 text-center">
+      <h2 className="text-5xl font-playfair mt-7 font-semibold text-center">
         User Reviews
       </h2>
-      {reviews.length === 0 ? (
-        <div className="text-center font-semibold text-3xl">
-          No reviews given yet
-        </div>
+      {loading ? (
+        <Loader />
+      ) : reviews.length === 0 ? (
+        <NoData title="Oppss! No reviews yet for this room" message="Stay with us for more service" />
       ) : (
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review) => (

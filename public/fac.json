@@ -1,0 +1,38 @@
+[
+    {
+     "title": "Beachfront Access",
+      "icon": "🏖️",
+      "description": "Direct private access to the world's longest sea beach",
+      "highlight": "5-min walk to Cox's Bazar shoreline"
+    },
+    {
+     "title": "Infinity Pool",
+      "icon": "🏊",
+      "description": "Ocean-view infinity pool with sunset deck",
+      "highlight": "Open 6AM-10PM | Poolside bar available"
+    },
+    {
+     "title": "Gourmet Dining",
+      "icon": "🍽️",
+      "description": "3 specialty restaurants serving local & international cuisine",
+      "highlight": "Fresh seafood BBQ every Friday"
+    },
+    {
+     "title": "Spa & Wellness",
+      "icon": "💆",
+      "description": "Full-service spa with traditional Bengali treatments",
+      "highlight": "Free 15-min neck massage for all guests in our premium lounge"
+    },
+    {
+     "title": "Adventure Tours",
+      "icon": "🚤",
+      "description": "Curated beach & hill excursions",
+      "highlight": "Saint Martin's Island boat trips and skydriving for adults"
+    },
+    {
+     "title": "Event Spaces",
+      "icon": "🎉",
+      "description": "Beachfront wedding/meeting venues",
+      "highlight": "Capacity up to 500 guests in a large auditorium"
+    }
+  ]

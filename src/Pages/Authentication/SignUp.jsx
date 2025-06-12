@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 
 const SignUp = () => {
   // contexts from contextProviders
-  const { createUser } = useAuth();
+  const { createUser,signInGoogle,setUser } = useAuth();
 
   const navigate = useNavigate()
 
@@ -64,6 +64,30 @@ const SignUp = () => {
         });
       });
   };
+
+  //google signup
+  const handleGoogle = () => {
+      signInGoogle()
+        .then((res) => {
+          setUser(res.user);
+          navigate(location?.state || "/");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Log in successfull",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        })
+        .catch((err) => {
+          Swal.fire({
+            title: `${err.message}`,
+            icon: "error",
+            draggable: true,
+          });
+        });
+    };
+    
 
     useEffect(()=>{
       document.title="Lodgify | Sign Up"
@@ -149,7 +173,7 @@ const SignUp = () => {
         </p>
         <div className="divider divider-secondary">Or</div>
         <button
-          // onClick={handleGoogle}
+          onClick={handleGoogle}
           className="btn w-full dark:bg-gray-800 dark:text-white border- border-gray-300 text-black mt-1 dark:border-none"
         >
           <FcGoogle size={21} />
@@ -161,3 +185,191 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+
+// import React, { useEffect, useState } from "react";
+// 
+// import Button from "../../Components/Button";
+// import { Link, useNavigate } from "react-router";
+// import { FcGoogle } from "react-icons/fc";
+// import { IoEye, IoEyeOff } from "react-icons/io5";
+// import useAuth from "../../hooks/useAuth";
+// import Swal from "sweetalert2";
+
+// const Login = () => {
+//   // contexts
+//   const { logInUser, signInGoogle, setUser } = useAuth();
+//   const [showPass, setShowPass] = useState(false);
+
+//   const navigate = useNavigate();
+
+//   const handleLogin = (e) => {
+//     e.preventDefault();
+//     const email = e.target.email.value;
+//     const password = e.target.password.value;
+//     logInUser(email, password)
+//       .then(() => {
+//         Swal.fire({
+//           position: "center",
+//           icon: "success",
+//           title: "Log in successfull!",
+//           showConfirmButton: false,
+//           timer: 1500,
+//         });
+//         navigate(location?.state || "/");
+//       })
+//       .catch((err) => {
+//         if (err.message == "Firebase: Error (auth/user-disabled).") {
+//           Swal.fire({
+//             title: "Your account is suspended",
+//             icon: "error",
+//             draggable: true,
+//           });
+//         } else if (
+//           err.message == "Firebase: Error (auth/invalid-credential)."
+//         ) {
+//           Swal.fire({
+//             title: "Invalid Username or Password",
+//             icon: "error",
+//             draggable: true,
+//           });
+//         }
+//       });
+//   };
+
+//   // google signIn
+//   const handleGoogle = () => {
+//     signInGoogle()
+//       .then((res) => {
+//         setUser(res.user);
+//         navigate(location?.state || "/");
+//         Swal.fire({
+//           position: "center",
+//           icon: "success",
+//           title: "Log in successfull",
+//           showConfirmButton: false,
+//           timer: 1500,
+//         });
+//       })
+//       .catch((err) => {
+//         Swal.fire({
+//           title: `${err.message}`,
+//           icon: "error",
+//           draggable: true,
+//         });
+//       });
+//   };
+
+//   useEffect(() => {
+//     document.title = "Lodgify | Login";
+//   }, []);
+
+  
+
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: 1 }}
+//       exit={{ opacity: 0 }}
+//       className="relative md:w-11/12 mx-auto min-h-[calc(100vh-81px)] flex items-center justify-center bg-gradient-to-br from-[#ff3b58] to-[#02ebc4] dark:from-gray-900 dark:to-gray-700 overflow-hidden transition-colors duration-500"
+//     >
+//       <motion.div
+//         variants={circleVariants}
+//         animate="animate"
+//         className="absolute top-[-100px] left-[-200px] w-[800px] h-[800px] bg-[#02ebc4] opacity-30 dark:bg-gray-700 rounded-full rotate-[25deg]"
+//       ></motion.div>
+//       <motion.div
+//         variants={circleVariants}
+//         animate="animate"
+//         className="absolute bottom-[-150px] right-[-250px] w-[900px] h-[900px] bg-[#ff3b58] opacity-30 dark:bg-gray-600 rounded-full rotate-[-20deg]"
+//       ></motion.div>
+
+//       <motion.div
+//         initial={{ scale: 0.9, opacity: 0 }}
+//         animate={{ scale: 1, opacity: 1 }}
+//         transition={{ type: "spring", stiffness: 100 }}
+//         className="z-10 backdrop-blur-sm bg-white/20 p-8 rounded shadow-2xl w-11/12 md:max-w-md transition-colors duration-500"
+//       >
+//         <motion.div variants={containerVariants} initial="hidden" animate="visible">
+//           <motion.h2 
+//             variants={itemVariants}
+//             className="text-3xl font-bold font-playfair text-center text-gray-800 dark:text-white mb-6"
+//           >
+//             Please Login!
+//           </motion.h2>
+
+//           <motion.form onSubmit={handleLogin} className="space-y-3" variants={containerVariants}>
+//             <motion.div variants={itemVariants}>
+//               <label className="block mb-1 font-semibold text-gray-600 dark:text-gray-300">
+//                 Email
+//               </label>
+//               <motion.input
+//                 whileFocus={{ scale: 1.02 }}
+//                 type="email"
+//                 name="email"
+//                 placeholder="Enter your email"
+//                 required
+//                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none"
+//               />
+//             </motion.div>
+//             <motion.div variants={itemVariants}>
+//               <label className="block mb-1 font-semibold text-gray-600 dark:text-gray-300">
+//                 Password
+//               </label>
+//               <motion.div 
+//                 whileFocus={{ scale: 1.02 }}
+//                 className="w-full flex justify-between items-center px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none"
+//               >
+//                 <input
+//                   name="password"
+//                   required
+//                   type={showPass ? "password" : "text"}
+//                   placeholder="Enter your password"
+//                   className="flex-1 border-0 outline-0"
+//                 />
+//                 <motion.button
+//                   whileTap={{ scale: 0.9 }}
+//                   type="button"
+//                   className="cursor-pointer"
+//                   onClick={() => setShowPass(!showPass)}
+//                 >
+//                   {showPass ? <IoEye size={19} /> : <IoEyeOff size={19} />}
+//                 </motion.button>
+//               </motion.div>
+//             </motion.div>
+//             <motion.div variants={itemVariants}>
+//               <Link
+//                 to="/auth/forgotpassword"
+//                 className="link text-blue-700 link-hover"
+//               >
+//                 Forgot password?
+//               </Link>
+//             </motion.div>
+//             <motion.div variants={itemVariants} whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+//               <Button label="Login" width="w-full" />
+//             </motion.div>
+//           </motion.form>
+//           <motion.p variants={itemVariants} className="mt-4">
+//             Don't have an account? Please{" "}
+//             <Link className="text-blue-700 hover:underline" to="/auth/signup">
+//               Sign up
+//             </Link>
+//           </motion.p>
+//           <motion.div variants={itemVariants} className="divider divider-secondary">Or</motion.div>
+//           <motion.button
+//             variants={itemVariants}
+//             whileHover={{ scale: 1.02 }}
+//             whileTap={{ scale: 0.98 }}
+//             onClick={handleGoogle}
+//             className="btn w-full dark:bg-gray-800 dark:text-white border- border-gray-300 text-black dark:border-none"
+//           >
+//             <FcGoogle size={21} />
+//             Log in with Google
+//           </motion.button>
+//         </motion.div>
+//       </motion.div>
+//     </motion.div>
+//   );
+// };
+
+// export default Login;

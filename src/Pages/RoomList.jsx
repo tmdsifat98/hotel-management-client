@@ -29,7 +29,7 @@ const RoomList = () => {
   }, [maxPrice, minPrice]);
 
     useEffect(()=>{
-      document.title="Our rooms"
+      document.title="All rooms"
     },[])
   return (
     <div>
@@ -43,8 +43,8 @@ const RoomList = () => {
         <Loader h={true} />
       ) : roomData.length < 1 ? (
         <NoData
-          title="No data available"
-          message="Please try adjusting your filters or check back later."
+          title="No rooms available"
+          message="No rooms available with this price range. Please try adjusting your filters or check back later."
         />
       ) : (
         <div className="grid grid-cols-1 lg:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
