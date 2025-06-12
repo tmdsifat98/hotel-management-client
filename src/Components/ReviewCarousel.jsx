@@ -21,7 +21,7 @@ const ReviewCarousel = () => {
   }, []);
   return (
     <div>
-      <h2 className="text-5xl md:text-6xl font-semibold text-center mt-12 mb-6 font-playfair">
+      <h2 className="text-5xl lg:text-6xl font-semibold text-center mt-12 mb-6 font-playfair">
         Our Guests Review
       </h2>
       {loading ? (
@@ -31,7 +31,7 @@ const ReviewCarousel = () => {
           {reviews.length < 1 ? (
             <NoData title="Opps! No Reviews available" />
           ) : (
-            <div className="max-w-7xl mx-auto pb-12 my-10 px-4">
+            <div className="lg:w-2/3 md:w-full mx-auto pb-12 my-10 px-4">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
@@ -49,7 +49,7 @@ const ReviewCarousel = () => {
               >
                 {reviews.map((review) => (
                   <SwiperSlide className="pb-8" key={review._id}>
-                    <div className="w-3/4 mx-auto md:w-96 bg-white dark:bg-gray-700 shadow-xl rounded-md overflow-hidden transform hover:scale-101 transition-transform duration-300">
+                    <div className="w-3/4 mx-auto md:w-11/12 bg-white dark:bg-gray-700 shadow-xl rounded-md overflow-hidden transform hover:scale-101 transition-transform duration-300">
                       <div className="relative">
                         <img
                           className="w-11/12 mx-auto h-44 object-cover rounded-lg opacity-90"

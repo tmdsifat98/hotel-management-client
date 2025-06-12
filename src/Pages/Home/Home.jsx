@@ -6,6 +6,7 @@ import { useState } from "react";
 import PromotionModal from "../../Components/PromotionModal";
 import Faq from "../../Components/Faq";
 import Facilities from "../../Components/Facilities";
+import FeaturedRooms from "../../Components/FeaturedRooms";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -33,6 +34,9 @@ const Home = () => {
             Our Hotel Location
           </h1>
           <Map />
+        </section>
+        <section>
+          <FeaturedRooms/>
         </section>
         <section>
           <ReviewCarousel />

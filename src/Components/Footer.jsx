@@ -9,7 +9,7 @@ import { GrSend } from "react-icons/gr";
 const Footer = () => {
   return (
     <footer className="bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-300 py-8 mt-12">
-      <div className="w-11/12 mx-auto grid grid-cols-2 gap-6 items-start">
+      <div className="w-11/12 mx-auto grid grid-cols-2 gap-6 md:gap-x-36 items-start">
         <div className="flex flex-col lg:flex-row justify-around items-start gap-4 lg:gap-0 ">
           <div className="flex flex-col justify-start items-start gap-3">
             <Link to="/" className="flex items-center justify-center gap-2">
