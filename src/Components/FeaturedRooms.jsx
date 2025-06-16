@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import Loader from "./Loader";
 import {  Fade, Flip } from "react-awesome-reveal";
+import Rating from "./Rating";
 
 const FeaturedRooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -10,7 +11,7 @@ const FeaturedRooms = () => {
   useEffect(() => {
     setLoading(true);
     axios(
-      "https://assignment-11-server-beige-seven.vercel.app/featuredRooms"
+      "http://localhost:3000/featuredRooms"
     ).then((res) => {
       setRooms(res.data);
       setLoading(false);
@@ -48,7 +49,7 @@ const FeaturedRooms = () => {
                       ${room.pricePerNight}/Night
                     </p>
                     <p className="text-[#02ebc4] font-semibold">
-                      Rating: {room.rating.toFixed(1)}
+                      <Rating value={room.rating}/> {room.rating.toFixed(1)}
                     </p>
                   </div>
 

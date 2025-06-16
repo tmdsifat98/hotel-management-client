@@ -7,6 +7,7 @@ import PromotionModal from "../../Components/PromotionModal";
 import Faq from "../../Components/Faq";
 import Facilities from "../../Components/Facilities";
 import FeaturedRooms from "../../Components/FeaturedRooms";
+import CountAnimation from "../../Components/CountAnimation";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -46,6 +47,9 @@ const Home = () => {
         </section>
         <section>
           <Facilities/>
+        </section>
+        <section>
+          <CountAnimation/>
         </section>
       </main>
     </div>

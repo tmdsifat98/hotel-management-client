@@ -25,11 +25,14 @@ const MyBookings = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
-    axios(`https://assignment-11-server-beige-seven.vercel.app/myBookings?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    axios(
+      `http://localhost:3000/myBookings?email=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => {
         setBookings(res.data);
         setLoading(false);
@@ -40,7 +43,7 @@ const MyBookings = () => {
           logOut()
             .then(() => {
               Swal.fire({
-                title: "Logged out for unauthorized access",
+                title: "Logged out for unauthorized access!",
                 icon: "error",
                 draggable: true,
               });
@@ -60,18 +63,19 @@ const MyBookings = () => {
           console.log(error.response.status);
         }
       });
-  }, [user.email]);
+  }, [user.email, user.accessToken, logOut]);
 
   const handleDelete = (booking, checkInDate) => {
     const today = new Date();
     const daydiff = getDayCount(today, checkInDate);
 
-    if (daydiff <= 1) {
+    if (daydiff <= 1 && daydiff >= 0) {
       Swal.fire({
         icon: "error",
         title: "Sorry Mr/Mrs",
         text: "Unfortunately, bookings cannot be canceled one day prior to the scheduled date",
-        footer: "<a class='text-blue-600 hover:underline' href='/refundPolicy'>See our refund policies!</a>",
+        footer:
+          "<a class='text-blue-600 hover:underline' href='/refundPolicy'>See our refund policies!</a>",
       });
     } else {
       Swal.fire({
@@ -85,16 +89,22 @@ const MyBookings = () => {
         confirmButtonText: "Proceed",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://assignment-11-server-beige-seven.vercel.app/myBookings/${booking._id}`, {
-            method: "DELETE",
-          })
+          fetch(
+            `http://localhost:3000/myBookings/${booking._id}`,
+            {
+              method: "DELETE",
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.deletedCount) {
                 axios
-                  .patch(`https://assignment-11-server-beige-seven.vercel.app/room/${booking.roomId}`, {
-                    available: true,
-                  })
+                  .patch(
+                    `http://localhost:3000/room/${booking.roomId}`,
+                    {
+                      available: true,
+                    }
+                  )
                   .then((res) => res.data)
                   .catch((err) => {
                     console.log(err.message);
@@ -117,9 +127,9 @@ const MyBookings = () => {
     }
   };
 
-    useEffect(()=>{
-      document.title="My Booking"
-    },[])
+  useEffect(() => {
+    document.title = "My Booking";
+  }, []);
   return (
     <div className=" min-h-[calc(100vh-402px)] relative">
       <h1 className="text-4xl font-bold my-5 text-center font-playfair">

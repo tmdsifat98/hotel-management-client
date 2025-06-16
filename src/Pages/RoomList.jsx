@@ -17,7 +17,7 @@ const RoomList = () => {
   useEffect(() => {
     setLoading(true);
     axios(
-      `https://assignment-11-server-beige-seven.vercel.app/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
+      `http://localhost:3000/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
     )
       .then((res) => {
         setRoomData(res.data);

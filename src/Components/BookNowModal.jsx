@@ -7,7 +7,6 @@ import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { MdCancel } from "react-icons/md";
-import { Fade } from "react-awesome-reveal";
 
 const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
   const room = roomData;
@@ -28,7 +27,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
     const guest = e.target.guestCount.value;
     const dateRange = { checkIn, checkOut };
     axios
-      .post("https://assignment-11-server-beige-seven.vercel.app/myBookings", {
+      .post("http://localhost:3000/myBookings", {
         roomId: room._id,
         roomImage: room.image,
         roomName: room.title,
@@ -40,7 +39,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
       .then((res) => {
         if (res.data.insertedId) {
           axios
-            .patch(`https://assignment-11-server-beige-seven.vercel.app/room/${room._id}`, {
+            .patch(`http://localhost:3000/room/${room._id}`, {
               available: false,
             })
             .then((res) => {
@@ -71,12 +70,12 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
   };
 
   return (
-    <Fade><div className="fixed top-20 inset-0 dark:bg-black/80 bg-black/50 flex justify-center items-center">
+    <div className="fixed px-3 md:px-0 top-20 inset-0 dark:bg-black/80 bg-black/50 flex justify-center items-center">
       <form
         onSubmit={handleBooking}
         className="bg-white rounded-xl p-6 w-full max-w-lg shadow-xl relative animate-fadeIn"
       >
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">
+        <h2 className="text-2xl font-bold mb-4 text-red-600">
           Booking Summary
         </h2>
         <button
@@ -141,7 +140,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
           <Button label="Confirm Booking" />
         </div>
       </form>
-    </div></Fade>
+    </div>
   );
 };
 

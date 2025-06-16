@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         path: "/room/:id",
         Component: RoomDetails,
         loader: ({ params }) =>
-          fetch(`https://assignment-11-server-beige-seven.vercel.app/room/${params.id}`),
+          fetch(`http://localhost:3000/room/${params.id}`),
         hydrateFallbackElement: <Loader />,
       },
       {

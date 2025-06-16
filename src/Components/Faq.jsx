@@ -7,7 +7,7 @@ const Faq = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    axios("https://assignment-11-server-beige-seven.vercel.app/faq").then(
+    axios("http://localhost:3000/faq").then(
       (res) => {
         setFaqs(res.data);
         setLoading(false);

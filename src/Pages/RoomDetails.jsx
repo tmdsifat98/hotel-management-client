@@ -52,7 +52,7 @@ const RoomDetails = () => {
                 <div>
                   <strong>Price:</strong> ${roomData.pricePerNight} / night
                 </div>
-                <div>
+                <div className="-z-10">
                   <strong>Rating:</strong> {roomData.rating.toFixed(1)}{" "}
                   <Rating value={roomData.rating} />
                 </div>

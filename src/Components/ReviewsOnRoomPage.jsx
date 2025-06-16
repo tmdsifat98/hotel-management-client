@@ -11,7 +11,7 @@ const ReviewsOnRoomPage = ({ id }) => {
     setLoading(true);
     axios
       .get(
-        `https://assignment-11-server-beige-seven.vercel.app/room/review/${id}`
+        `http://localhost:3000/room/review/${id}`
       )
       .then((res) => {
         setReviews(res.data);

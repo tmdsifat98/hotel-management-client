@@ -14,7 +14,7 @@ const ReviewCarousel = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    axios("https://assignment-11-server-beige-seven.vercel.app/review").then((res) => {
+    axios("http://localhost:3000/review").then((res) => {
       setReviews(res.data);
       setLoading(false);
     });
@@ -25,7 +25,7 @@ const ReviewCarousel = () => {
         Our Guests Review
       </h2>
       {loading ? (
-        <Loader />
+        <Loader h="true" />
       ) : (
         <div>
           {reviews.length < 1 ? (

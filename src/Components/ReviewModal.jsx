@@ -25,7 +25,7 @@ const ReviewModal = ({ setShowModal, rateBooking }) => {
     };
     console.log(rateBooking);
     axios
-      .post("https://assignment-11-server-beige-seven.vercel.app/review", review)
+      .post("http://localhost:3000/review", review)
       .then((res) => {
         if (res.data) {
           Swal.fire({

@@ -19,7 +19,7 @@ const UpdateDate = ({ setUpdateModal, updateDateRoom }) => {
     const checkOut = range[0].endDate.toLocaleString();
     const dateRange = { checkIn, checkOut };
     axios
-      .patch(`https://assignment-11-server-beige-seven.vercel.app/mybooking/${updateDateRoom}`, {
+      .patch(`http://localhost:3000/mybooking/${updateDateRoom}`, {
         dateRange,
       })
       .then((res) => {

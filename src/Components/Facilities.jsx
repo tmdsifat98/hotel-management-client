@@ -10,7 +10,7 @@ const Facilities = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios("https://assignment-11-server-beige-seven.vercel.app/facilities")
+    axios("http://localhost:3000/facilities")
       .then((res) => {
         setFacilities(res.data);
         setLoading(false);
