@@ -146,7 +146,7 @@ const SignUp = () => {
               <input
                 onChange={validatePassword}
                 name="password"
-                pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{6}$"
                 type={showPass ? "text" : "password"}
                 placeholder="Enter your password"
                 className="flex-1 border-0 outline-0"
