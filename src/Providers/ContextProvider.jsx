@@ -12,6 +12,7 @@ import { auth } from "../Firebase/firebase.config";
 
 const ContextProvider = ({ children }) => {
   const [user, setUser] = useState();
+  const [mail, setMail] = useState("");
   const [loading, setLoading] = useState(true);
 
   const provider = new GoogleAuthProvider();
@@ -50,7 +51,9 @@ const ContextProvider = ({ children }) => {
     logInUser,
     logOut,
     signInGoogle,
-    setUser
+    setUser,
+    mail,
+    setMail,
   };
   return <AuthContext value={userInfo}>{children}</AuthContext>;
 };

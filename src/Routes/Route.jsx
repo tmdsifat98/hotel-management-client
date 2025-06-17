@@ -13,6 +13,7 @@ import MyBookings from "../Pages/MyBookings";
 import RefundPolicy from "../Pages/RefundPolicy";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import TermsAndCondition from "../Pages/TermsAndCondition";
+import ForgotPassword from "../Pages/Authentication/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
         Component: SignUp,
       },
       { path: "/auth/login", Component: Login },
+      { path: "/auth/forgotPassword", Component: ForgotPassword },
     ],
   },
   { path: "*", Component: ErrorPage },

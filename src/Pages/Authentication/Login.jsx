@@ -8,10 +8,14 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   // constexts
-  const { logInUser, signInGoogle, setUser } = useAuth();
+  const { logInUser, signInGoogle, setUser, mail, setMail } = useAuth();
   const [showPass, setShowPass] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleMail = (e) => {
+    setMail(e.target.value);
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -89,8 +93,8 @@ const Login = () => {
               Email
             </label>
             <input
-              type="email"
-              name="email"
+              onChange={handleMail}
+              value={mail}
               placeholder="Enter your email"
               required
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none"
@@ -104,7 +108,7 @@ const Login = () => {
               <input
                 name="password"
                 required
-                type={showPass ? "password" : "text"}
+                type={showPass ? "text" : "password"}
                 placeholder="Enter your password"
                 className="flex-1 border-0 outline-0"
               />
@@ -113,13 +117,13 @@ const Login = () => {
                 className="cursor-pointer"
                 onClick={() => setShowPass(!showPass)}
               >
-                {showPass ? <IoEye size={19} /> : <IoEyeOff size={19} />}
+                {showPass ? <IoEyeOff size={19} /> : <IoEye size={19} />}
               </button>
             </div>
           </div>
           <div>
             <Link
-              to="/auth/forgotpassword"
+              to="/auth/forgotPassword"
               className="link text-blue-700 link-hover"
             >
               Forgot password?

@@ -37,19 +37,19 @@ const Home = () => {
           <Map />
         </section>
         <section>
-          <FeaturedRooms/>
+          <FeaturedRooms />
         </section>
         <section>
           <ReviewCarousel />
         </section>
         <section>
-          <Faq/>
+          <Facilities />
         </section>
         <section>
-          <Facilities/>
+          <Faq />
         </section>
         <section>
-          <CountAnimation/>
+          <CountAnimation />
         </section>
       </main>
     </div>

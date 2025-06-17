@@ -9,14 +9,14 @@ const hotelStatus = [
 ];
 const CountAnimation = () => {
   return (
-    <div>
+    <div className="mt-12">
       <div className="w-11/12 lg:w-1/2 mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         {hotelStatus.map((status) => (
-          <div key={status.id} className="bg-white dark:bg-gray-600 shadow-md rounded-2xl p-6">
+          <div key={status.id} className="bg-white transition-all duration-300 dark:bg-gray-600 shadow-md rounded-2xl p-6 border border-gray-300">
             <h2 className="text-3xl font-bold font-playfair text-[#ff3b58] dark:text-[#02ebc4]">
               <CountUp
                 end={status.value}
-                duration={2.5}
+                duration={4.5}
                 separator=","
                 suffix="+"
                 enableScrollSpy
