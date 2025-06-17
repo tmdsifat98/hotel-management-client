@@ -85,8 +85,8 @@ const ReviewCarousel = () => {
                           </span>
                         </div>
                         <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] ">
-                          {review.comment.length > 100
-                            ? review.comment.slice(0, 100) + "..."
+                          {review.comment.length > 85
+                            ? review.comment.slice(0, 85) + "..."
                             : review.comment}
                         </div>
                       </div>

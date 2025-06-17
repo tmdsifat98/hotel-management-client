@@ -31,13 +31,17 @@ const ReviewsOnRoomPage = ({ id }) => {
           message="Stay with us for more service"
         />
       ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 px-2 md:gap-6">
+        <div className="px-2">
           {reviews.map((review) => (
             <div
               key={review._id}
-              className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md"
+              className="bg-white dark:bg-gray-800 p-4 w-full mb-3 rounded-xl shadow-md"
             >
-              <div className="flex gap-2">
+              <div className="flex items-center gap-1 ml-4">
+                <Rating value={review.rating} />{" "}
+                <p className="mt-1">({review.rating})</p>
+              </div>
+              <div className="flex gap-2 mt-3 ml-2">
                 <img
                   src={review.userPhoto}
                   alt={review.userName}
@@ -51,10 +55,9 @@ const ReviewsOnRoomPage = ({ id }) => {
                 </div>
               </div>
               <div className="ml-6 mt-3">
-                <div className="flex items-center gap-1">
-                  <Rating value={review.rating} /> <p className="mt-1">({review.rating})</p>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 mt-2 line-clamp-3">{review.comment}</p>
+                <p className="text-gray-600 dark:text-gray-300 mt-2 bg-gray-200 dark:bg-gray-600 p-2 rounded-lg">
+                  {review.comment}
+                </p>
               </div>
             </div>
           ))}

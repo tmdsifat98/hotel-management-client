@@ -97,7 +97,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
             <span>Room Description:</span> {room.description}
           </p>
           <strong>How long you stay?</strong>
-          <div className="w-fit mx-auto">
+          <div className="w-11/12 mx-auto">
             <DateRange
               editableDateInputs={true}
               onChange={(item) => setRange([item.selection])}
