@@ -1,2 +1,2 @@
 export const myBookingPromise = (email) =>
-  fetch(`http://localhost:3000/myBookings?email=${email}`).then((res) => res.json());
+  fetch(`https://assignment-11-server-beige-seven.vercel.app/myBookings?email=${email}`).then((res) => res.json());

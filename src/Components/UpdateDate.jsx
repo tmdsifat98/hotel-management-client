@@ -6,7 +6,7 @@ import "react-date-range/dist/theme/default.css";
 import { MdClose } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const UpdateDate = ({ setUpdateModal, updateDateRoom }) => {
+const UpdateDate = ({ setUpdateModal, updateDateRoom, onDateUpdate }) => {
   const [range, setRange] = useState([
     {
       startDate: new Date(),
@@ -14,16 +14,18 @@ const UpdateDate = ({ setUpdateModal, updateDateRoom }) => {
       key: "selection",
     },
   ]);
-  const updateDate = () => {
+  const updateDate = (e) => {
+    e.preventDefault();
     const checkIn = range[0].startDate.toLocaleString();
     const checkOut = range[0].endDate.toLocaleString();
     const dateRange = { checkIn, checkOut };
     axios
-      .patch(`http://localhost:3000/mybooking/${updateDateRoom}`, {
+      .patch(`https://assignment-11-server-beige-seven.vercel.app/mybooking/${updateDateRoom}`, {
         dateRange,
       })
       .then((res) => {
         if (res.data.modifiedCount) {
+          onDateUpdate(dateRange);
           Swal.fire({
             position: "center",
             icon: "success",
@@ -36,12 +38,22 @@ const UpdateDate = ({ setUpdateModal, updateDateRoom }) => {
       })
       .catch((err) => {
         console.error("Update failed:", err.message);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something went wrong!",
+          text: "Please try again later",
+        });
+        setUpdateModal(false);
       });
   };
   return (
     <div className="fixed top-20 inset-0 dark:bg-black/80 bg-black/50 text-black flex justify-center items-center">
       <div className="w-fit mx-auto bg-gray-200 px-10 py-5 relative rounded-lg">
-        <button onClick={()=>setUpdateModal(false)} className="text-xl absolute top-2 right-3 cursor-pointer hover:text-red-600">
+        <button
+          onClick={() => setUpdateModal(false)}
+          className="text-xl absolute top-2 right-3 cursor-pointer hover:text-red-600"
+        >
           <MdClose size={24} />{" "}
         </button>
         <h2 className="text-center font-playfair font-semibold text-2xl mb-3">

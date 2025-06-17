@@ -11,7 +11,7 @@ const FeaturedRooms = () => {
   useEffect(() => {
     setLoading(true);
     axios(
-      "http://localhost:3000/featuredRooms"
+      "https://assignment-11-server-beige-seven.vercel.app/featuredRooms"
     ).then((res) => {
       setRooms(res.data);
       setLoading(false);

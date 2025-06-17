@@ -19,9 +19,8 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
     const password = e.target.password.value;
-    logInUser(email, password)
+    logInUser(mail, password)
       .then(() => {
         Swal.fire({
           position: "center",

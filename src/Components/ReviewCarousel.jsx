@@ -14,7 +14,7 @@ const ReviewCarousel = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    axios("http://localhost:3000/review").then((res) => {
+    axios("https://assignment-11-server-beige-seven.vercel.app/review").then((res) => {
       setReviews(res.data);
       setLoading(false);
     });
@@ -84,9 +84,9 @@ const ReviewCarousel = () => {
                             {review.rating}/5
                           </span>
                         </div>
-                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-indigo-500 dark:border-blue-600 ">
-                          {review.comment.length > 40
-                            ? review.comment.slice(0, 36) + "..."
+                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] ">
+                          {review.comment.length > 100
+                            ? review.comment.slice(0, 100) + "..."
                             : review.comment}
                         </div>
                       </div>

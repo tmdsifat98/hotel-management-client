@@ -23,6 +23,7 @@ const RoomDetails = () => {
   return (
     <Fade>
       <div className="relative">
+        <h1 className="text-5xl font-bold font-playfair text-center mb-3">Room Details</h1>
         {showModal && (
           <BookNowModal
             roomData={roomData}

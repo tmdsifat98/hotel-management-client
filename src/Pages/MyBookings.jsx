@@ -21,18 +21,16 @@ const MyBookings = () => {
   const [rateBooking, setRateBooking] = useState(null);
   const [updateModal, setUpdateModal] = useState(false);
   const [updateDateRoom, setUpdateDateRoom] = useState();
+  const [bookingDateId,setBookingDateId]=useState()
 
   const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
-    axios(
-      `http://localhost:3000/myBookings?email=${user.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      }
-    )
+    axios(`https://assignment-11-server-beige-seven.vercel.app/myBookings?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => {
         setBookings(res.data);
         setLoading(false);
@@ -75,7 +73,7 @@ const MyBookings = () => {
         title: "Sorry Mr/Mrs",
         text: "Unfortunately, bookings cannot be canceled one day prior to the scheduled date",
         footer:
-          "<a class='text-blue-600 hover:underline' href='/refundPolicy'>See our refund policies!</a>",
+          "<a class='text-[#02ebc4] hover:underline' href='/refundPolicy'>See our refund policies!</a>",
       });
     } else {
       Swal.fire({
@@ -89,22 +87,16 @@ const MyBookings = () => {
         confirmButtonText: "Proceed",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(
-            `http://localhost:3000/myBookings/${booking._id}`,
-            {
-              method: "DELETE",
-            }
-          )
+          fetch(`https://assignment-11-server-beige-seven.vercel.app/myBookings/${booking._id}`, {
+            method: "DELETE",
+          })
             .then((res) => res.json())
             .then((data) => {
               if (data.deletedCount) {
                 axios
-                  .patch(
-                    `http://localhost:3000/room/${booking.roomId}`,
-                    {
-                      available: true,
-                    }
-                  )
+                  .patch(`https://assignment-11-server-beige-seven.vercel.app/room/${booking.roomId}`, {
+                    available: true,
+                  })
                   .then((res) => res.data)
                   .catch((err) => {
                     console.log(err.message);
@@ -125,6 +117,15 @@ const MyBookings = () => {
         }
       });
     }
+  };
+
+  const handleDateUpdate = (bookingId, newDateRange) => {
+    const updated = bookings.map((booking) =>
+      booking._id === bookingId
+        ? { ...booking, dateRange: newDateRange }
+        : booking
+    );
+    setBookings(updated);
   };
 
   useEffect(() => {
@@ -175,6 +176,7 @@ const MyBookings = () => {
                   setRateBooking={setRateBooking}
                   setUpdateModal={setUpdateModal}
                   setUpdateDateRoom={setUpdateDateRoom}
+                  setBookingDateId={setBookingDateId}
                 />
               ))}
             </tbody>
@@ -188,6 +190,9 @@ const MyBookings = () => {
         <UpdateDate
           setUpdateModal={setUpdateModal}
           updateDateRoom={updateDateRoom}
+          onDateUpdate={(newDateRange) =>
+            handleDateUpdate(bookingDateId, newDateRange)
+          }
         />
       )}
     </div>

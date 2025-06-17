@@ -15,6 +15,7 @@ const BookingRoom = ({
   setRateBooking,
   setUpdateModal,
   setUpdateDateRoom,
+  setBookingDateId,
 }) => {
   const days = getDayCount(
     booking.dateRange.checkIn,
@@ -52,6 +53,7 @@ const BookingRoom = ({
           <button
             onClick={() => {
               setUpdateDateRoom(booking.roomId);
+              setBookingDateId(booking._id);
               setUpdateModal(true);
             }}
             className="cursor-pointer hover:text-lime-600"

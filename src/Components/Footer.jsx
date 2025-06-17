@@ -62,7 +62,7 @@ const Footer = () => {
               >
                 <FaFacebook
                   size={23}
-                  className="text-blue-600 hover:text-blue-500 transition"
+                  className="text-[#02ebc4] hover:text-blue-500 transition"
                 />
               </a>
               <a href="https://x.com/SifatTarafder98" target="_blank">

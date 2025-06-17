@@ -27,7 +27,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
     const guest = e.target.guestCount.value;
     const dateRange = { checkIn, checkOut };
     axios
-      .post("http://localhost:3000/myBookings", {
+      .post("https://assignment-11-server-beige-seven.vercel.app/myBookings", {
         roomId: room._id,
         roomImage: room.image,
         roomName: room.title,
@@ -39,7 +39,7 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
       .then((res) => {
         if (res.data.insertedId) {
           axios
-            .patch(`http://localhost:3000/room/${room._id}`, {
+            .patch(`https://assignment-11-server-beige-seven.vercel.app/room/${room._id}`, {
               available: false,
             })
             .then((res) => {
@@ -88,15 +88,13 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
 
         <div className="space-y-2 text-gray-700 ">
           <p>
-            <span className="font-medium">Room:</span> {room.title}
+            <span>Room:</span> <strong>{room.title}</strong>
           </p>
           <p>
-            <span className="font-medium">Room Number:</span>{" "}
-            <strong>#{room.roomNumber}</strong>
+            <span>Room Number:</span> <strong>#{room.roomNumber}</strong>
           </p>
           <p>
-            <span className="font-medium">Room Description:</span>{" "}
-            {room.description}
+            <span>Room Description:</span> {room.description}
           </p>
           <strong>How long you stay?</strong>
           <div className="w-fit mx-auto">
@@ -116,18 +114,17 @@ const BookNowModal = ({ roomData, setShowModal, handleBookingSuccess }) => {
                 defaultValue={0}
                 min={0}
                 max="2"
-                className="range"
+                className="range range-xs range-secondary"
                 name="guestCount"
               />
             </label>
           </p>
           <p>
-            <span className="font-medium">Cancellation Policy:</span>{" "}
-            {room.cancellationPolicy}
+            <span>Cancellation Policy:</span> {room.cancellationPolicy}
           </p>
           <div className="flex justify-between">
             <p>
-              <span className="font-medium mb-1">Refundable:</span>{" "}
+              <span className="mb-1">Refundable:</span>{" "}
               {room.isRefundable ? "Yes" : "No"}
             </p>
             <p className="font-semibold">

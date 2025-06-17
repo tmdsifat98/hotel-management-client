@@ -10,7 +10,7 @@ const Facilities = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios("http://localhost:3000/facilities")
+    axios("https://assignment-11-server-beige-seven.vercel.app/facilities")
       .then((res) => {
         setFacilities(res.data);
         setLoading(false);
@@ -48,7 +48,7 @@ const Facilities = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ 
-                scale: 1.03,
+                scale: 1.01,
                 transition: { duration: 0.3 }
               }}
               className="bg-white dark:bg-gray-600 rounded-lg shadow-xl overflow-hidden"
@@ -71,9 +71,9 @@ const Facilities = () => {
                 </p>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="mt-6 p-4 bg-blue-50 rounded-lg border-l-6 border-blue-500"
+                  className="mt-6 p-4 bg-blue-50 dark:bg-gray-300 rounded-lg border-l-6 border-[#02ebc4]"
                 >
-                  <p className="text-blue-700 font-medium md:line-clamp-2">
+                  <p className="text-[#ff3b58] font-medium md:line-clamp-2">
                     {facility.highlight}
                   </p>
                 </motion.div>
