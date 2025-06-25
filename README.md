@@ -75,3 +75,18 @@ npm install
 Run the server
 ```bash
 npm run dev
+```
+
+Also you need to clone the server repository.
+```bash
+https://github.com/tmdsifat98/hotel-management-server
+```
+Go to the directory and run it
+```bash
+nodemone start
+```
+Here is the local server url
+```bash
+http://localhost:3000
+```
+
