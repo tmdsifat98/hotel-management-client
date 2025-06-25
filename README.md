@@ -60,7 +60,13 @@ The goal of this project is to build a user-friendly and responsive hotel room b
 ## 🚀 Run Locally
 
 ```bash
-git clone https://github.com/tor-username/project-name.git
+git clone https://github.com/tmdsifat98/hotel-management-client
+```
+```bash
 cd project-name
+```
+```bash
 npm install
+```
+```bash
 npm run dev
