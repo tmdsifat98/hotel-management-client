@@ -56,3 +56,11 @@ The goal of this project is to build a user-friendly and responsive hotel room b
 - **Motion** – Animation library for React powered by Framer Motion
 - **React Awesome Reveal** – Animation library based on Framer Motion to reveal elements on scroll with elegant effects
 - **React CountUp** – An smooth counting animation library in react
+
+## 🚀 Run Locally
+
+```bash
+git clone https://github.com/tor-username/project-name.git
+cd project-name
+npm install
+npm run dev
