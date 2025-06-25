@@ -77,7 +77,8 @@ Run the server
 npm run dev
 ```
 
-Also you need to clone the server repository.
+## Also you need to clone the server repository.
+---
 ```bash
 https://github.com/tmdsifat98/hotel-management-server
 ```
@@ -89,4 +90,7 @@ Here is the local server url
 ```bash
 http://localhost:3000
 ```
-
+And production url is here
+```bash
+https://assignment-11-server-beige-seven.vercel.app
+```
