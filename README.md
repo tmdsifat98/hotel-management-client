@@ -58,15 +58,20 @@ The goal of this project is to build a user-friendly and responsive hotel room b
 - **React CountUp** – An smooth counting animation library in react
 
 ## 🚀 Run Locally
+---
 
+Open your folder and run this command
 ```bash
 git clone https://github.com/tmdsifat98/hotel-management-client
 ```
+Go to your project directory
 ```bash
 cd project-name
 ```
+Install necessary npm packages
 ```bash
 npm install
 ```
+Run the server
 ```bash
 npm run dev
