@@ -14,6 +14,8 @@ import RefundPolicy from "../Pages/RefundPolicy";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import TermsAndCondition from "../Pages/TermsAndCondition";
 import ForgotPassword from "../Pages/Authentication/ForgotPassword";
+import AboutUs from "../Pages/AboutUs";
+import Gallery from "../Pages/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,8 @@ const router = createBrowserRouter([
       { path: "/refundPolicy", Component: RefundPolicy },
       { path: "/privacyPolicy", Component: PrivacyPolicy },
       { path: "/termsAndCondition", Component: TermsAndCondition },
+      { path: "/about-us", Component: AboutUs },
+      { path: "/gallery", Component: Gallery },
     ],
   },
   {
