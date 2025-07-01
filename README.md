@@ -56,3 +56,41 @@ The goal of this project is to build a user-friendly and responsive hotel room b
 - **Motion** – Animation library for React powered by Framer Motion
 - **React Awesome Reveal** – Animation library based on Framer Motion to reveal elements on scroll with elegant effects
 - **React CountUp** – An smooth counting animation library in react
+
+## 🚀 Run Locally
+
+
+Open your folder and run this command
+```bash
+git clone https://github.com/tmdsifat98/hotel-management-client
+```
+Go to your project directory
+```bash
+cd project-name
+```
+Install necessary npm packages
+```bash
+npm install
+```
+Run the server
+```bash
+npm run dev
+```
+
+## For server side
+Also you need to clone the server repository.
+```bash
+https://github.com/tmdsifat98/hotel-management-server
+```
+Go to the directory and run it
+```bash
+nodemone start
+```
+Here is the local server url
+```bash
+http://localhost:3000
+```
+And production url is here
+```bash
+https://assignment-11-server-beige-seven.vercel.app
+```
