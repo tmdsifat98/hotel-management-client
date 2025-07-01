@@ -55,7 +55,7 @@ const FeaturedRooms = () => {
 
                   <Link to={`/room/${room._id}`}>
                     <button className=" mt-4 w-full cursor-pointer text-center button-common text-white py-2 rounded hover:shadow-xl">
-                      Book Now
+                      See More
                     </button>
                   </Link>
                 </div>

@@ -6,11 +6,11 @@ const PrivacyPolicy = () => {
       },[])
   return (
     <div className="min-h-screen">
-      <h2 className="button-common text-center md:w-4/5 py-5 text-5xl font-playfair font-semibold mx-auto">
+      <h2 className="text-center md:w-4/5 py-5 text-5xl font-playfair font-semibold mx-auto">
         Privacy Policy
       </h2>
       <div className="md:w-4/5 mx-auto py-3">
-        <div className="bg-white dark:bg-gray-600 shadow-md rounded-lg p-8">
+        <div className="bg-white dark:bg-gray-600 rounded-lg p-8">
           <h2 className="text-2xl font-semibold mb-4">Our Privacy Policy</h2>
           <p className="text-gray-700 dark:text-gray-300 mb-6">
             At Lodgify, we are committed to protecting your privacy and ensuring

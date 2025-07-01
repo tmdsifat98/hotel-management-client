@@ -6,7 +6,7 @@ const RefundPolicy = () => {
       },[])
   return (
     <div className="min-h-screen">
-      <div className="md:w-3/4 mx-auto px-4 button-common rounded py-5 text-center">
+      <div className="md:w-3/4 mx-auto px-4 rounded py-5 text-center">
         <h1 className="text-5xl font-bold font-playfair">Refund Policy</h1>
       </div>
       <div className="md:w-3/4 mx-auto py-1">

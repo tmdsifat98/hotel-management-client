@@ -21,7 +21,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 my-6">
+    <section className="w-11/12 md:w-3/4 lg:w-5/6 mx-auto px-4 my-6">
       <h2 className="text-6xl font-playfair font-bold text-center dark:text-white">
         Lodgify Gallery
       </h2>
@@ -29,7 +29,7 @@ const Gallery = () => {
       {loading ? (
         <Loader h="true" />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
           {photos.map((photo, i) => (
             <div
               key={photo._id}

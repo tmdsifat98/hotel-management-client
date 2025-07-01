@@ -5,12 +5,12 @@ const TermsAndCondition = () => {
         document.title="Terms & Conditions"
       },[])
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-2 md:px-0">
-        <div className="md:w-3/4 mx-auto button-common py-6 text-center">
-          <h1 className="text-5xl font-bold font-playfair">Terms & Conditions</h1>
+    <div className="min-h-screen dark:bg-gray-900 px-2 md:px-0">
+        <div className="md:w-3/4 mx-auto py-6 text-center">
+          <h1 className="text-6xl font-bold font-playfair">Terms & Conditions</h1>
         </div>
       <div className="md:w-3/4 mx-auto py-2">
-        <div className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-8">
+        <div className="bg-white dark:bg-gray-700 rounded-lg p-8">
           <h2 className="text-2xl font-semibold mb-4">
             Our Terms and Conditions
           </h2>
