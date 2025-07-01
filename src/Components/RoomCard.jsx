@@ -8,11 +8,11 @@ const RoomCard = ({ room }) => {
     <Link to={`/room/${room._id}`} className="relative group">
       <div className="relative md:h-[520px] lg:h-[514px] bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
         {room.available ? (
-          <span className="badge absolute top-0 right-0 badge-xs py-3 px-4 bg-lime-600 border-none text-white">
+          <span className="badge absolute top-0 right-0 badge-xs rounded-tl-none rounded-br-none py-3 px-6 bg-lime-600 border-none text-white">
             Available
           </span>
         ) : (
-          <span className="badge absolute top-0 right-0 badge-xs py-3 px-4 bg-rose-600 border-none text-white">
+          <span className="badge absolute top-0 right-0 badge-xs rounded-tl-none rounded-br-none py-3 px-5 bg-rose-600 border-none text-white">
             Not available
           </span>
         )}

@@ -37,7 +37,7 @@ const RoomList = () => {
       <h1 className="text-center text-6xl font-bold font-playfair">
         Our Special Rooms
       </h1>
-      <div>
+      <div className="sticky top-18 mx-3 lg:top-20 z-[111] backdrop-blur-3xl rounded-lg w-fit lg:mx-auto lg:px-6 px-3 py-3 mt-9 mb-3">
         <PriceRange setPriceRange={setPriceRange} />
       </div>
       {loading ? (

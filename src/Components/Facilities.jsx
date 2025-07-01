@@ -73,7 +73,7 @@ const Facilities = () => {
                   whileHover={{ scale: 1.02 }}
                   className="mt-6 p-4 bg-blue-50 dark:bg-gray-300 rounded-lg border-l-6 border-[#02ebc4]"
                 >
-                  <p className="text-[#ff3b58] font-medium md:line-clamp-2">
+                  <p className="text-gray-800 font-medium md:line-clamp-2">
                     {facility.highlight}
                   </p>
                 </motion.div>

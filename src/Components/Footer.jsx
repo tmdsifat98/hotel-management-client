@@ -5,8 +5,20 @@ import { MdCall, MdEmail } from "react-icons/md";
 import { FaHouse } from "react-icons/fa6";
 import { Link } from "react-router";
 import { GrSend } from "react-icons/gr";
+import Swal from "sweetalert2";
 
 const Footer = () => {
+  const handleText = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Message successfully sent!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    e.target.reset()
+  };
   return (
     <footer className="bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-300 py-8 mt-12">
       <div className="w-11/12 mx-auto grid grid-cols-2 gap-6 md:gap-x-36 items-start">
@@ -15,7 +27,9 @@ const Footer = () => {
             <Link to="/" className="flex items-center justify-center gap-2">
               <img className="h-8 md:h-11" src={logo} />
             </Link>
-            <p className="w-44 lg:w-72">Stay Better, Book Smarter — Find Your Room in One Click!!</p>
+            <p className="w-44 lg:w-72">
+              Stay Better, Book Smarter — Find Your Room in One Click!!
+            </p>
           </div>
 
           <div>
@@ -84,10 +98,20 @@ const Footer = () => {
                 />
               </a>
             </div>
-            <div className="border w-44 border-gray-400 mt-2 rounded pl-2 flex items-center">
-              <input placeholder="Write message" className="bg-transparent text-sm w-11/12 border-none outline-0" type="text" name="" id="" />
-              <button className="button-common py-2 px-4 cursor-pointer"><GrSend/></button>
-            </div>
+            <form
+              onSubmit={handleText}
+              className="border w-44 border-gray-400 mt-2 rounded pl-2 flex items-center"
+            >
+              <input
+                placeholder="Write message"
+                className="bg-transparent text-sm w-11/12 border-none outline-0"
+                type="text"
+                required
+              />
+              <button className="button-common py-2 px-4 cursor-pointer">
+                <GrSend />
+              </button>
+            </form>
           </div>
         </div>
       </div>

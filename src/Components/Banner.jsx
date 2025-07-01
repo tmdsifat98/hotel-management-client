@@ -13,19 +13,22 @@ import Button from "./Button";
 const Banner = () => {
   return (
    <Fade>
-     <div className="w-11/12 mx-auto">
+     <div>
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
         loop={true}
-        className="overflow-hidden shadow-lg"
+        speed={1000}
+        pagination={{
+          clickable: true,
+        }}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
+        modules={[Pagination, Autoplay]}
+        className="mySwiper"
       >
         <SwiperSlide>
-          <div className="w-full banner-bg-1 h-96 flex justify-center items-center lg:h-[calc(100vh-110px)]">
+          <div className="w-full banner-bg-1 h-96 flex justify-center items-center lg:h-[700px]">
             <div className="text-white font-bold text-center lg:space-y-6 ">
               <h2 className="text-3xl lg:text-6xl font-playfair mb-7 lg:mb-5 text-center">
                 Find Your Perfect Stay — Anytime, Anywhere.
@@ -41,7 +44,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full banner-bg-2 h-96 flex justify-center items-center lg:h-[calc(100vh-110px)]">
+          <div className="w-full banner-bg-2 h-96 flex justify-center items-center lg:h-[700px]">
             <div className="text-white font-bold text-center lg:space-y-6 ">
               <h2 className="text-3xl lg:text-6xl font-playfair mb-7 lg:mb-5 text-center">
                 Book in Minutes. Relax for Days.
@@ -57,7 +60,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full banner-bg-3 h-96 flex justify-center items-center lg:h-[calc(100vh-110px)]">
+          <div className="w-full banner-bg-3 h-96 flex justify-center items-center lg:h-[700px]">
             <div className="text-white font-bold text-center lg:space-y-6 ">
               <h2 className="text-3xl lg:text-6xl mb-5 font-playfair lg:mb-5 text-center">
                 Luxury, Comfort, and Convenience — All in One Place.

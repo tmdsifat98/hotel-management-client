@@ -48,7 +48,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar backdrop-blur-sm bg-white/10 md:w-11/12 mb-2 mx-auto z-50 shadow-sm">
+    <div className="navbar backdrop-blur-sm md:w-11/12 mx-auto z-50">
       <div className="navbar-start gap-3">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="cursor-pointer lg:hidden">

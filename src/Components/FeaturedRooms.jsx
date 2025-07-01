@@ -25,7 +25,7 @@ const FeaturedRooms = () => {
       {loading ? (
         <Loader h="true" />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-5/6 md:w-11/12 lg:w-7/12 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-5/6 md:w-11/12 lg:w-9/12 mx-auto">
           {rooms.map((room) => (
             <Fade>
               <div

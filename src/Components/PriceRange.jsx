@@ -17,8 +17,8 @@ const PriceRange = ({ setPriceRange }) => {
     }
   };
   return (
-    <form onSubmit={handleRange} className="flex justify-center mt-10 mb-3 gap-4">
-      <div className="border border-gray-500 rounded-md w-1/3 md:w-fit">
+    <form onSubmit={handleRange} className="flex justify-center gap-4">
+      <div className="border-2 border-[#ff3b58] dark:border-[#02ebc4] rounded-md w-1/3 md:w-fit">
         <input
           type="number"
           className=" pl-3 py-1 w-full"
@@ -26,7 +26,7 @@ const PriceRange = ({ setPriceRange }) => {
           placeholder="Minimum Price"
         />
       </div>
-      <div className="border border-gray-500 rounded-md w-1/3 md:w-fit">
+      <div className="border-2 border-[#ff3b58] dark:border-[#02ebc4] rounded-md w-1/3 md:w-fit">
         <input
           type="number"
           className=" pl-3 py-1 w-full"
