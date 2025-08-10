@@ -44,12 +44,6 @@ const RoomCard = ({ room }) => {
               <strong>Bed:</strong> {room.bedType}
             </p>
             <p>
-              <strong>Guests:</strong> {room.maxGuests}
-            </p>
-            <p>
-              <strong>Floor:</strong> {room.floor}
-            </p>
-            <p>
               <strong>View:</strong> {room.view}
             </p>
             <p>

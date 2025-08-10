@@ -39,7 +39,7 @@ const RoomList = () => {
       <h1 className="text-center text-6xl font-bold font-playfair">
         Our Special Rooms
       </h1>
-      <div className="sticky top-18 flex flex-row-reverse gap-3 mx-3 lg:top-20 z-[111] backdrop-blur-3xl rounded-lg w-fit lg:mx-auto lg:px-6 px-3 py-3 mt-9 mb-3 mx-auto">
+      <div className="sticky top-18 flex flex-row-reverse gap-3 lg:top-20 z-[111] backdrop-blur-3xl rounded-lg w-fit lg:mx-auto lg:px-6 px-3 py-3 mt-9 mb-3 mx-auto">
         <PriceRange setPriceRange={setPriceRange} />
         <Sorting sortOrder={sortOrder} setSortOrder={setSortOrder} />
       </div>
