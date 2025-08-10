@@ -39,7 +39,7 @@ const RoomList = () => {
       <h1 className="text-center text-6xl font-bold font-playfair">
         Our Special Rooms
       </h1>
-      <div className="sticky top-18 flex flex-row-reverse gap-3 mx-3 lg:top-20 z-[111] backdrop-blur-3xl rounded-lg w-fit lg:mx-auto lg:px-6 px-3 py-3 mt-9 mb-3">
+      <div className="sticky top-18 flex flex-row-reverse gap-3 mx-3 lg:top-20 z-[111] backdrop-blur-3xl rounded-lg w-fit lg:mx-auto lg:px-6 px-3 py-3 mt-9 mb-3 mx-auto">
         <PriceRange setPriceRange={setPriceRange} />
         <Sorting sortOrder={sortOrder} setSortOrder={setSortOrder} />
       </div>
@@ -52,7 +52,7 @@ const RoomList = () => {
         />
       ) : (
         <Fade>
-          <div className="grid grid-cols-1 lg:w-9/12 mx-auto lg:grid-cols-3 md:grid-cols-2 gap-6 p-6">
+          <div className="grid grid-cols-1 lg:w-11/12 mx-auto lg:grid-cols-4 md:grid-cols-2 gap-6 p-6">
             {roomData.map((room) => (
               <RoomCard key={room._id} room={room} />
             ))}
