@@ -18,7 +18,7 @@ const FeaturedRooms = () => {
     });
   }, []);
   return (
-    <div className="my-12">
+    <div className="mt-16">
       <h2 className="text-5xl lg:text-6xl font-playfair font-semibold text-center mb-8">
         Featured Rooms
       </h2>

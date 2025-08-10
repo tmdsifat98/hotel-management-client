@@ -59,7 +59,7 @@ function DraggableMarker() {
 const Map = () => {
   return (
     <Zoom>
-      <div className="h-[250px] md:h-[380px] lg:h-[600px] z-10 w-full">
+      <div className="h-[250px] md:h-[380px] lg:h-[650px] z-10 w-full">
         <MapContainer
           center={center}
           zoom={13}

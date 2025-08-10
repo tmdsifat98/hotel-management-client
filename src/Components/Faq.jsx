@@ -15,7 +15,7 @@ const Faq = () => {
     );
   }, []);
   return (
-    <div className="w-11/12 md:w-4/5 lg:w-7/12 mx-auto">
+    <div className="w-11/12 md:w-4/5 lg:w-7/12 mx-auto mt-16">
       <h1 className="text-5xl md:text-6xl font-playfair text-center font-semibold mb-10">
         Frequently asked Question
       </h1>

@@ -21,7 +21,7 @@ const ReviewCarousel = () => {
   }, []);
   return (
     <div>
-      <h2 className="text-5xl lg:text-6xl font-semibold text-center mt-12 mb-6 font-playfair">
+      <h2 className="text-5xl lg:text-6xl font-semibold text-center mt-20 mb-6 font-playfair">
         Our Guests Review
       </h2>
       {loading ? (
@@ -31,7 +31,7 @@ const ReviewCarousel = () => {
           {reviews.length < 1 ? (
             <NoData title="Opps! No Reviews available" />
           ) : (
-            <div className="w-5/6 md:w-11/12 lg:w-9/12 mx-auto pb-12 my-10">
+            <div className="w-5/6 md:w-11/12 lg:w-9/12 mx-auto my-10">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
@@ -84,7 +84,7 @@ const ReviewCarousel = () => {
                             {review.rating}/5
                           </span>
                         </div>
-                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] line-clamp-3">
+                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-1 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] line-clamp-3">
                           {review.comment.length > 85
                             ? review.comment.slice(0, 85) + "..."
                             : review.comment}

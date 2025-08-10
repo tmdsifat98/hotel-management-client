@@ -30,8 +30,8 @@ const Home = () => {
         <Banner />
       </header>
       <main>
-        <section className="lg:w-7/12 w-11/12 mx-auto">
-          <h1 className="md:text-5xl text-4xl lg:text-6xl font-playfair mt-10 mb-7 font-bold text-center">
+        <section className="lg:w-9/12 w-11/12 mx-auto">
+          <h1 className="md:text-5xl text-4xl lg:text-6xl font-playfair mt-16 mb-7 font-bold text-center">
             Our Hotel Location
           </h1>
           <Map />
