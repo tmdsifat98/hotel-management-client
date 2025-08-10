@@ -5,10 +5,12 @@ import PriceRange from "../Components/PriceRange";
 import axios from "axios";
 import NoData from "../Components/NoData";
 import { Fade } from "react-awesome-reveal";
+import Sorting from "../Components/Sorting";
 
 const RoomList = () => {
   const [roomData, setRoomData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState("");
 
   const [priceRange, setPriceRange] = useState({});
   const minPrice = priceRange.minPrice;
@@ -17,7 +19,7 @@ const RoomList = () => {
   useEffect(() => {
     setLoading(true);
     axios(
-      `https://assignment-11-server-beige-seven.vercel.app/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`
+      `https://assignment-11-server-beige-seven.vercel.app/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}&sort=${sortOrder}`
     )
       .then((res) => {
         setRoomData(res.data);
@@ -27,7 +29,7 @@ const RoomList = () => {
         console.error(err);
         setLoading(false);
       });
-  }, [maxPrice, minPrice]);
+  }, [maxPrice, minPrice, sortOrder]);
 
   useEffect(() => {
     document.title = "All rooms";
@@ -37,8 +39,9 @@ const RoomList = () => {
       <h1 className="text-center text-6xl font-bold font-playfair">
         Our Special Rooms
       </h1>
-      <div className="sticky top-18 mx-3 lg:top-20 z-[111] backdrop-blur-3xl rounded-lg w-fit lg:mx-auto lg:px-6 px-3 py-3 mt-9 mb-3">
+      <div className="sticky top-18 flex flex-row-reverse gap-3 mx-3 lg:top-20 z-[111] backdrop-blur-3xl rounded-lg w-fit lg:mx-auto lg:px-6 px-3 py-3 mt-9 mb-3">
         <PriceRange setPriceRange={setPriceRange} />
+        <Sorting sortOrder={sortOrder} setSortOrder={setSortOrder} />
       </div>
       {loading ? (
         <Loader h={true} />
