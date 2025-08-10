@@ -14,10 +14,12 @@ const ReviewCarousel = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    axios("https://assignment-11-server-beige-seven.vercel.app/review").then((res) => {
-      setReviews(res.data);
-      setLoading(false);
-    });
+    axios("https://assignment-11-server-beige-seven.vercel.app/review").then(
+      (res) => {
+        setReviews(res.data);
+        setLoading(false);
+      }
+    );
   }, []);
   return (
     <div>
@@ -43,24 +45,22 @@ const ReviewCarousel = () => {
                 breakpoints={{
                   320: { slidesPerView: 1 },
                   640: { slidesPerView: 1 },
-                  768: { slidesPerView: 2 },
-                  1024: { slidesPerView: 3 },
+                  768: { slidesPerView: 3 },
+                  1024: { slidesPerView: 4 },
                 }}
               >
                 {reviews.map((review) => (
                   <SwiperSlide className="pb-8" key={review._id}>
                     <div className="w-3/4 mx-auto md:w-11/12 bg-white dark:bg-gray-700 shadow-xl rounded-md overflow-hidden transform hover:scale-101 transition-transform duration-300">
-                      <div className="relative">
+                      <div className="relative w-11/12 mx-auto">
                         <img
-                          className="w-11/12 mx-auto h-44 object-cover rounded-lg opacity-90"
+                          className=" h-44 w-full object-cover rounded-lg opacity-90"
                           src={review.roomImage}
                           alt={review.roomTitle}
                         />
-                        <div className="absolute top-0 left-[16px] button-common text-black px-10 py-1 rounded-br-lg rounded-tl-lg">
-                          <h4 className="font-medium">
-                            {review.roomTitle}
-                          </h4>
-                        </div>
+                        <h4 className="font-medium absolute top-0 button-common text-black px-10 py-1 rounded-br-lg rounded-tl-lg">
+                          {review.roomTitle}
+                        </h4>
                       </div>
                       <div className="p-6">
                         <div className="flex items-center mb-4">
@@ -84,7 +84,7 @@ const ReviewCarousel = () => {
                             {review.rating}/5
                           </span>
                         </div>
-                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-1 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] line-clamp-3">
+                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-1 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] line-clamp-2">
                           {review.comment.length > 85
                             ? review.comment.slice(0, 85) + "..."
                             : review.comment}

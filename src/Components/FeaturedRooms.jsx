@@ -30,15 +30,15 @@ const FeaturedRooms = () => {
             <Fade>
               <div
                 key={room._id}
-                className="bg-white dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden"
+                className="bg-white dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden line"
               >
                 <img
                   src={room.image}
                   alt={room.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-44 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold font-playfair">
+                  <h3 className="text-2xl font-bold font-playfair line-clamp-1">
                     {room.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">
