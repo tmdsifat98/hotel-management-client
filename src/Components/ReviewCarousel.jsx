@@ -31,11 +31,11 @@ const ReviewCarousel = () => {
           {reviews.length < 1 ? (
             <NoData title="Opps! No Reviews available" />
           ) : (
-            <div className="lg:w-2/3 md:w-full mx-auto pb-12 my-10 px-4">
+            <div className="w-5/6 md:w-11/12 lg:w-9/12 mx-auto pb-12 my-10">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
-                slidesPerView={3}
+                slidesPerView={4}
                 navigation
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 5000 }}
@@ -84,7 +84,7 @@ const ReviewCarousel = () => {
                             {review.rating}/5
                           </span>
                         </div>
-                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] ">
+                        <div className="text-gray-700 italic bg-gray-100 dark:bg-gray-300 py-2 pl-4 rounded-lg border-l-7 border-[#02ebc4] dark:border-[#02ebc4] line-clamp-3">
                           {review.comment.length > 85
                             ? review.comment.slice(0, 85) + "..."
                             : review.comment}
